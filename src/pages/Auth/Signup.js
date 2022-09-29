@@ -6,6 +6,7 @@ import { injectStyle } from "react-toastify/dist/inject-style";
 
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './../../config/config'
+
 import Loader from '../../component/Loader';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
+
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate()
