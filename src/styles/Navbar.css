@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -11,6 +13,7 @@
     height: 75px;
     background-color: #00828c;
     color: white;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .logo{

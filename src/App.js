@@ -5,7 +5,7 @@ import { AdSers } from "./pages/AdServs";
 import { About } from "./pages/About";
 import { Home } from "./pages/Home";
 import { Signin } from "./pages/Auth/Signin";
-import { Signup } from "./pages/Auth/Signup";
+import  Signup  from "./pages/Auth/Signup";
 import Cart from "./pages/Cart";
 import History from "./pages/History";
 import Admin from "./pages/Admin";

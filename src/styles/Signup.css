@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
+
+.form{
+    font-family: 'Ubuntu', sans-serif;
+    width: 35rem;
+    padding: 1rem;
+    margin: auto;
+    border: 1px solid #777;
+    text-align: center;
+    
+}
+
+.form form input[type="text"], .form form input[type="email"], .form form input[type="password"] {
+    font-family: 'Ubuntu', sans-serif;
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 300;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 100%;
+    border: 1px solid #777;
+    border-radius: 3px;
+    outline: none;
+}
+
+.form form button{
+    font-family: 'Ubuntu', sans-serif;
+}
