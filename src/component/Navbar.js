@@ -27,9 +27,7 @@ const Navbar = () => {
             <Link to={'/admin'} className='admin'>
                 <li>Admin</li>
             </Link>
-            <Link to={'/about'} className='about'>
-                <li>About</li>
-            </Link>
+            
 
             {/* <div className='navbar-right'>
             <Link to={'/cart'} className='cart'>

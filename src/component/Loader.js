@@ -1,5 +1,5 @@
 import React from 'react'
-import LoaderImg from './../assets/loader.gif'
+import LoaderImg from './../assets/loader1.gif'
 import './../styles/Loader.css'
 import ReactDom from 'react-dom'
 
