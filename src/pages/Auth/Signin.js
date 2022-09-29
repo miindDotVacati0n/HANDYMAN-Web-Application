@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import './../../styles/Signin.css';
 import { FcGoogle } from "react-icons/fc";
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from './../../config/config'
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -43,6 +43,19 @@ export const Signin = () => {
           });
       };
 
+    // Login with Goooglr
+    const provider = new GoogleAuthProvider();
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            toast.success("Login Successfully");
+            navigate('/');
+        })
+        .catch((error) => {
+            toast.error(error.message);
+        });
+    };
+
     return (
         <>
         <ToastContainer />
@@ -58,7 +71,7 @@ export const Signin = () => {
                 </div>
                 <p>-- หรือ --</p>
             </form>
-            <button className="--btn --btn-danger --btn-block">
+            <button className="--btn --btn-danger --btn-block" onClick={signInWithGoogle}>
                 <FcGoogle />
                 Login With Google
             </button>
