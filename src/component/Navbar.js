@@ -1,11 +1,33 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './../styles/Navbar.css'
 import { FaCartArrowDown } from "react-icons/fa";
+
+import { signOut } from 'firebase/auth';
+import { auth } from './../config/config';
+
+import { toast } from "react-toastify";
 
 const Navbar = () => {
 
     const [isMobile, setIsMobile] = useState(false);
+
+    const [showMenu, setShowMenu] = useState(false);
+
+    const hideMenu = () => {
+        setShowMenu(false);
+    };
+
+    const navigate = useNavigate();
+
+    const logoutUser = () => {
+        signOut(auth).then(() => {
+            toast.success("Logout successfully.");
+            navigate('/');
+          }).catch((error) => {
+            toast.error(error.message);
+          });
+    };
 
   return (
     <nav className='navbar'>
@@ -56,6 +78,9 @@ const Navbar = () => {
              </span>
             <Link to={'/history'} className='history'>
                 <li>My Orders</li>
+            </Link>
+            <Link to={'/'} className='logout' onClick={logoutUser}>
+                <li>Logout</li>
             </Link>
             <Link to={'/signin'} className='signin'>
                 <li>Sign In</li>

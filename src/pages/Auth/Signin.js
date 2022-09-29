@@ -16,6 +16,8 @@ import { useNavigate } from 'react-router-dom';
 
 export const Signin = () => {
 
+    injectStyle();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -43,7 +45,7 @@ export const Signin = () => {
 
     return (
         <>
-        {/* <ToastContainer /> */}
+        <ToastContainer />
         {loading && <Loader />}
         <div className="form">
             <h2>Login</h2>

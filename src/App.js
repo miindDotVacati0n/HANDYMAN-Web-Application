@@ -11,10 +11,18 @@ import History from "./pages/History";
 import Admin from "./pages/Admin";
 import Reset from "./pages/Auth/Reset";
 
+import { ToastContainer, toast } from 'react-toastify';
+import { injectStyle } from "react-toastify/dist/inject-style";
+
 const App = () => {
+
+  injectStyle();
+
   return (
-    
+    <>
+
     <Router>
+      <ToastContainer />
       <Navbar />
 
       <Routes>
@@ -29,6 +37,7 @@ const App = () => {
         <Route path="/reset" element={<Reset />} />
       </Routes>
     </Router>
+    </>
   );
 }
 

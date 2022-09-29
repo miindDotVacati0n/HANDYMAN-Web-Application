@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './../../styles/Signup.css'
 // import { Link } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";
 
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -46,7 +46,6 @@ const Signup = () => {
 
     return (
         <>
-        <ToastContainer />
         {loading && <Loader />}
         <div className='form'>
             <h2>Register</h2>
