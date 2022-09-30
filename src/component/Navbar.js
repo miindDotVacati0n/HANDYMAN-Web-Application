@@ -13,6 +13,8 @@ import { useDispatch } from 'react-redux';
 import { SET_ACTIVE_USER, REMOCE_ACTIVE_USER } from '../redux/slice/authSlice';
 
 import ShowOnLogin, { ShowOnLogout } from './hiddenLink';
+import AdminRoute from './AdminRoute';
+import OwnerRoute from './OwnerRoute';
 
 const Navbar = () => {
 
@@ -85,9 +87,19 @@ const Navbar = () => {
             <Link to={'/services'} className='services'>
                 <li>Services</li>
             </Link>
-            <Link to={'/admin'} className='admin'>
-                <li>Admin</li>
-            </Link>
+            <AdminRoute>
+                <Link to={'/admin'} className='admin'>
+                    <li>Admin</li>
+                </Link>
+            </AdminRoute>
+
+            <OwnerRoute>
+                <Link to={'/owner'} className='owner'>
+                    <li>Owner</li>
+                </Link>
+            </OwnerRoute>
+            
+            
             
 
             {/* <div className='navbar-right'>

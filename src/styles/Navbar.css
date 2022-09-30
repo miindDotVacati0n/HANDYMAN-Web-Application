@@ -35,6 +35,7 @@
 .history,
 .cart,
 .logout,
+.owner,
 .signup{
     text-decoration: none;
     color: white;
@@ -98,6 +99,7 @@
     .cart,
     .logout,
     .admin,
+    .owner,
     .signup{
         color: white;
         text-align: center;
