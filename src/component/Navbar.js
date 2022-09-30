@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './../styles/Navbar.css'
+
 import { FaCartArrowDown, FaUserCircle } from "react-icons/fa";
 
 import { onAuthStateChanged, signOut } from 'firebase/auth';
@@ -10,6 +11,8 @@ import { toast } from "react-toastify";
 
 import { useDispatch } from 'react-redux';
 import { SET_ACTIVE_USER, REMOCE_ACTIVE_USER } from '../redux/slice/authSlice';
+
+import ShowOnLogin, { ShowOnLogout } from './hiddenLink';
 
 const Navbar = () => {
 
@@ -112,22 +115,32 @@ const Navbar = () => {
                     <p>0</p>
                 </Link>
              </span>
-            <Link to={'/history'} className='history'>
-                <li>My Orders</li>
-            </Link>
-            <Link to={'/'} className='logout' onClick={logoutUser}>
-                <li>Logout</li>
-            </Link>
-            <Link to={'/signin'} className='signin'>
-                <li>Sign In</li>
-            </Link>
-            <a href='#home'>
-                <FaUserCircle size={16} />
-                Hi, {displayName}
-            </a>
-            <Link to={'/signup'} className='signup'>
+             <ShowOnLogin>
+                <Link to={'/history'} className='history'>
+                    <li>My Orders</li>
+                </Link>
+             </ShowOnLogin>
+            
+            <ShowOnLogin>
+                <Link to={'/'} className='logout' onClick={logoutUser}>
+                    <li>Logout</li>
+                </Link>
+            </ShowOnLogin>
+            <ShowOnLogout>
+                <Link to={'/signin'} className='signin'>
+                    <li>Sign In</li>
+                </Link>
+            </ShowOnLogout>
+            <ShowOnLogin>
+                <a href='#home' style={{color: '#ff7722'}}>
+                    <FaUserCircle size={16} />
+                    Hi, {displayName}
+                </a>
+            </ShowOnLogin>
+            
+            {/* <Link to={'/signup'} className='signup'>
                 <li>Sign Up</li>
-            </Link>
+            </Link> */}
         </ul>
         <button className='mobile-menu-icon'
         onClick={() => setIsMobile(!isMobile)}
