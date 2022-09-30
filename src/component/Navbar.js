@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './../styles/Navbar.css'
-import { FaCartArrowDown } from "react-icons/fa";
+import { FaCartArrowDown, FaUserCircle } from "react-icons/fa";
 
-import { signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from './../config/config';
 
 import { toast } from "react-toastify";
@@ -11,6 +11,8 @@ import { toast } from "react-toastify";
 const Navbar = () => {
 
     const [isMobile, setIsMobile] = useState(false);
+
+    const [displayName, setdisplayName] = useState("");
 
     const [showMenu, setShowMenu] = useState(false);
 
@@ -28,6 +30,18 @@ const Navbar = () => {
             toast.error(error.message);
           });
     };
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                const uid = user.uid;
+                console.log(user.displayName);
+                setdisplayName(user.displayName);
+            }else{
+                setdisplayName("");
+            }
+        });
+    }, []);
 
 
   return (
@@ -86,6 +100,10 @@ const Navbar = () => {
             <Link to={'/signin'} className='signin'>
                 <li>Sign In</li>
             </Link>
+            <a href='#'>
+                <FaUserCircle size={16} />
+                Hi, {displayName}
+            </a>
             <Link to={'/signup'} className='signup'>
                 <li>Sign Up</li>
             </Link>

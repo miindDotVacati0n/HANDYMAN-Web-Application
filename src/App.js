@@ -13,6 +13,7 @@ import Reset from "./pages/Auth/Reset";
 
 import { ToastContainer, toast } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";
+import Services from "./pages/Services";
 
 const App = () => {
 
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/history" element={<History />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/reset" element={<Reset />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
     </Router>
     </>

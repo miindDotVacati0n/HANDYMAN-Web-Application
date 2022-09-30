@@ -43,7 +43,7 @@ export const Signin = () => {
           });
       };
 
-    // Login with Goooglr
+    // Login with Gooogle by Firebase
     const provider = new GoogleAuthProvider();
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider)
