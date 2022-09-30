@@ -11,7 +11,7 @@ import History from "./pages/History";
 import Admin from "./pages/Admin";
 import Reset from "./pages/Auth/Reset";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";
 import Services from "./pages/Services";
 

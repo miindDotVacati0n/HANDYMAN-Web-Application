@@ -9,7 +9,7 @@ import { auth } from './../config/config';
 import { toast } from "react-toastify";
 
 import { useDispatch } from 'react-redux';
-import { SET_ACTIVE_USER } from '../redux/slice/authSlice';
+import { SET_ACTIVE_USER, REMOCE_ACTIVE_USER } from '../redux/slice/authSlice';
 
 const Navbar = () => {
 
@@ -44,7 +44,7 @@ const Navbar = () => {
                 // console.log(user.displayName);
 
                 if(user.displayName == null){
-                    const u1 = user.email.slice(0, -10);
+                    const u1 = user.email.substring(0, user.email.indexOf("@"));
                     const uName = u1.charAt(0).toUpperCase() + u1.slice(1)
                     // console.log(uName);
                     setdisplayName(uName);
@@ -59,9 +59,10 @@ const Navbar = () => {
                 }));
             }else{
                 setdisplayName("");
+                dispatch(REMOCE_ACTIVE_USER());
             }
         });
-    }, []);
+    }, [dispatch, displayName]);
 
 
   return (
@@ -120,7 +121,7 @@ const Navbar = () => {
             <Link to={'/signin'} className='signin'>
                 <li>Sign In</li>
             </Link>
-            <a href='#'>
+            <a href='#home'>
                 <FaUserCircle size={16} />
                 Hi, {displayName}
             </a>
