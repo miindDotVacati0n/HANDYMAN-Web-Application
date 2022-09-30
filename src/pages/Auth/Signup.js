@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './../../styles/Signup.css'
+import './../../styles/Pages/Auth/Signup.css'
 // import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";

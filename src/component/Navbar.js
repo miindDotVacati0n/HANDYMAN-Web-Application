@@ -88,15 +88,21 @@ const Navbar = () => {
                 <li>Services</li>
             </Link>
             <AdminRoute>
-                <Link to={'/admin'} className='admin'>
+                {/* <Link to={'/admin'} className='admin'>
                     <li>Admin</li>
+                </Link> */}
+                <Link to={'/admin/home'}>
+                    <button className='btn'>
+                        Admin
+                    </button>
                 </Link>
+                
             </AdminRoute>
 
             <OwnerRoute>
-                <Link to={'/owner'} className='owner'>
-                    <li>Owner</li>
-                </Link>
+                <button className='btn'>
+                    Owner
+                </button>
             </OwnerRoute>
             
             

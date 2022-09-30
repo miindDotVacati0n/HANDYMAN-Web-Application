@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import './../../styles/Signin.css';
+import './../../styles/Pages/Auth/Signin.css';
 import { FcGoogle } from "react-icons/fc";
 
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
