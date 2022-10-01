@@ -16,9 +16,9 @@ import Services from "./pages/Services";
 import AdminRoute from "./component/AdminRoute";
 import ViewServices from "./component/admin/ViewServices";
 import AddServices from "./component/admin/AddServices";
-import Orders from "./component/admin/Orders";
 import AdminHome from "./pages/admin/AdminHome";
 import OwnerHome from "./pages/owner/OwnerHome";
+import AdminOrders from "./pages/admin/AdminOrders";
 
 
 const App = () => {
@@ -38,12 +38,12 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/history" element={<History />} />
-        <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>}>
-        <Route path='home' element={<Home />} />
+        {/* <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>}> */}
+        {/* <Route path='home' element={<Home />} />
           <Route path="all-services" element={<ViewServices />} />
           <Route path="add-service/:id" element={<AddServices />} />
           <Route path="orders" element={<Orders />} />
-        </Route>
+        </Route> */}
         <Route path="/reset" element={<Reset />} />
         <Route path="/services" element={<Services />} />
 
@@ -51,8 +51,10 @@ const App = () => {
         <Route path="/adminhome" element={<AdminHome />} />
         <Route path="/addservices" element={<AddServices />} />
         <Route path="/viewservices" element={<ViewServices />} />
+        <Route path="/adminorders" element={<AdminOrders />} />
 
         <Route path="/ownerhome" element={<OwnerHome />} />
+
 
       </Routes>
     </Router>

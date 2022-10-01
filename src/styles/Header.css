@@ -40,6 +40,7 @@
 .viewservices,
 .owner,
 .ownerhome,
+.adminorders,
 .signup{
     text-decoration: none;
     color: white;
@@ -107,6 +108,7 @@
     .viewservices,
     .admin,
     .owner,
+    .adminorders,
     .ownerhome,
     .signup{
         color: white;
