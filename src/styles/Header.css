@@ -39,6 +39,7 @@
 .addservices,
 .viewservices,
 .owner,
+.ownerhome,
 .signup{
     text-decoration: none;
     color: white;
@@ -106,6 +107,7 @@
     .viewservices,
     .admin,
     .owner,
+    .ownerhome,
     .signup{
         color: white;
         text-align: center;

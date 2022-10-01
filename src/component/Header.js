@@ -12,9 +12,10 @@ import { toast } from "react-toastify";
 import { useDispatch } from 'react-redux';
 import { SET_ACTIVE_USER, REMOCE_ACTIVE_USER } from '../redux/slice/authSlice';
 
-import ShowOnLogin, { ShowOnLogout } from './hiddenLink';
+import ShowOnLogin, { AdminDoNotShow, OwnerDoNotShow, ShowOnLogout } from './hiddenLink';
 import AdminRoute, { AdminLink } from './AdminRoute';
 import OwnerRoute from './OwnerRoute';
+
 
 const Header = () => {
 
@@ -78,7 +79,9 @@ const Header = () => {
         <ul className={isMobile ? 'nav-links-mobile' : 'nav-links'}
         onClick={() => setIsMobile(false)}
         > 
-            <Link to={'/'} className='home'>
+            <AdminDoNotShow>
+                <OwnerDoNotShow>
+                    <Link to={'/'} className='home'>
                 <li>Home</li>
             </Link>
             {/* <Link to={'/about'} className='about'>
@@ -87,6 +90,10 @@ const Header = () => {
             <Link to={'/services'} className='services'>
                 <li>Services</li>
             </Link>
+                </OwnerDoNotShow>
+                
+            </AdminDoNotShow>
+            
             <AdminLink>
                 {/* <Link to={'/admin'} className='admin'>
                     <li>Admin</li>
@@ -112,9 +119,9 @@ const Header = () => {
             </AdminLink>
 
             <OwnerRoute>
-                <button className='btn'>
-                    Owner
-                </button>
+            <Link to={'/ownerhome'} className='ownerhome'>
+                    <li>Home</li>
+                </Link>
             </OwnerRoute>
             
             

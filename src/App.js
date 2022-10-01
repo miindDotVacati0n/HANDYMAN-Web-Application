@@ -18,6 +18,7 @@ import ViewServices from "./component/admin/ViewServices";
 import AddServices from "./component/admin/AddServices";
 import Orders from "./component/admin/Orders";
 import AdminHome from "./pages/admin/AdminHome";
+import OwnerHome from "./pages/owner/OwnerHome";
 
 
 const App = () => {
@@ -50,6 +51,8 @@ const App = () => {
         <Route path="/adminhome" element={<AdminHome />} />
         <Route path="/addservices" element={<AddServices />} />
         <Route path="/viewservices" element={<ViewServices />} />
+
+        <Route path="/ownerhome" element={<OwnerHome />} />
 
       </Routes>
     </Router>

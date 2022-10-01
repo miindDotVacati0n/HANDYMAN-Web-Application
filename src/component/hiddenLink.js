@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { selectIsLoggedIn } from '../redux/slice/authSlice'
+import { selectEmail, selectIsLoggedIn } from '../redux/slice/authSlice'
 
 
 const ShowOnLogin = ({children}) => {
@@ -7,6 +7,26 @@ const ShowOnLogin = ({children}) => {
     const isLoggedIn = useSelector(selectIsLoggedIn)
 
     if(isLoggedIn){
+        return children
+    }
+    return null;
+}
+
+export const AdminDoNotShow = ({children}) => {
+
+    const userEmail = useSelector(selectEmail)
+
+    if(userEmail !== "admin@test.dev"){
+        return children
+    }
+    return null;
+}
+
+export const OwnerDoNotShow = ({children}) => {
+
+    const userEmail = useSelector(selectEmail)
+
+    if(userEmail !== "owner@test.dev"){
         return children
     }
     return null;
