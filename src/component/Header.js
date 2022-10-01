@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './../styles/Navbar.css'
+import './../styles/Header.css'
 
 import { FaCartArrowDown, FaUserCircle } from "react-icons/fa";
 
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from './../config/config';
+import { auth } from '../config/config';
 
 import { toast } from "react-toastify";
 
@@ -16,7 +16,7 @@ import ShowOnLogin, { ShowOnLogout } from './hiddenLink';
 import AdminRoute, { AdminLink } from './AdminRoute';
 import OwnerRoute from './OwnerRoute';
 
-const Navbar = () => {
+const Header = () => {
 
     const [isMobile, setIsMobile] = useState(false);
 
@@ -71,7 +71,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className='navbar'>
+    <nav className='header'>
         <h3 className='logo'>HANDYMAN
             {/* <Link to={'/'} className='home'>logo</Link> */}
         </h3>
@@ -81,9 +81,9 @@ const Navbar = () => {
             <Link to={'/'} className='home'>
                 <li>Home</li>
             </Link>
-            <Link to={'/about'} className='about'>
+            {/* <Link to={'/about'} className='about'>
                 <li>About</li>
-            </Link>
+            </Link> */}
             <Link to={'/services'} className='services'>
                 <li>Services</li>
             </Link>
@@ -91,11 +91,23 @@ const Navbar = () => {
                 {/* <Link to={'/admin'} className='admin'>
                     <li>Admin</li>
                 </Link> */}
-                <Link to={'/admin/home'}>
+                {/* <Link to={'/admin/home'}>
                     <button className='btn'>
                         Admin
                     </button>
+                </Link> */}
+                <Link to={'/adminhome'} className='adminhome'>
+                    <li>Home</li>
                 </Link>
+                <Link to={'/addservices'} className='addservices'>
+                    <li>Add Services</li>
+                </Link>
+                <Link to={'/viewservices'} className='viewservices'>
+                    <li>View Services</li>
+                </Link>
+                {/* <Link to={'/adminhome'} className='adminhome'>
+                    <li>Home</li>
+                </Link> */}
                 
             </AdminLink>
 
@@ -169,4 +181,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Header

@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-.navbar{
+.header{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -35,6 +35,9 @@
 .history,
 .cart,
 .logout,
+.adminhome,
+.addservices,
+.viewservices,
 .owner,
 .signup{
     text-decoration: none;
@@ -98,6 +101,9 @@
     .history,
     .cart,
     .logout,
+    .adminhome,
+    .addservices,
+    .viewservices,
     .admin,
     .owner,
     .signup{

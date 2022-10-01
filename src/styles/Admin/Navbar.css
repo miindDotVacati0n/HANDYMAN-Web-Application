@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
+
+.navbar {
+    border-right: 1px solid #ccc;
+    min-height: 80vh;
+    font-family: 'Ubuntu', sans-serif;
+}
+.navbar .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4rem;
+}
+.navbar .user h4 {
+    color: rgb(0, 0, 0);
+}
+.navbar nav ul li {
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+    position: relative;
+}
+.navbar nav ul li a {
+    display: block;
+    width: 100%;
+}
+.active {
+    cursor: pointer;
+}
+.active::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: orangered;
+}

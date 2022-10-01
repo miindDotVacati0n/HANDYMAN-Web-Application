@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import  Navbar from './component/Navbar';
+import  Navbar from './component/Header';
 //pages
 import { Home } from "./pages/Home";
 import { Signin } from "./pages/Auth/Signin";
@@ -14,6 +14,11 @@ import { ToastContainer } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";
 import Services from "./pages/Services";
 import AdminRoute from "./component/AdminRoute";
+import ViewServices from "./component/admin/ViewServices";
+import AddServices from "./component/admin/AddServices";
+import Orders from "./component/admin/Orders";
+import AdminHome from "./pages/admin/AdminHome";
+
 
 const App = () => {
 
@@ -32,16 +37,19 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/history" element={<History />} />
-        <Route
-            path="/admin/*"
-            element={
-              <AdminRoute>
-                <Admin />
-              </AdminRoute>
-            }
-          />
+        <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>}>
+        <Route path='home' element={<Home />} />
+          <Route path="all-services" element={<ViewServices />} />
+          <Route path="add-service/:id" element={<AddServices />} />
+          <Route path="orders" element={<Orders />} />
+        </Route>
         <Route path="/reset" element={<Reset />} />
         <Route path="/services" element={<Services />} />
+
+        
+        <Route path="/adminhome" element={<AdminHome />} />
+        <Route path="/addservices" element={<AddServices />} />
+        <Route path="/viewservices" element={<ViewServices />} />
 
       </Routes>
     </Router>
