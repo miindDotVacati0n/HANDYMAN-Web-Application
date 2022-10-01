@@ -2,7 +2,7 @@ import React from 'react'
 
 const ViewServices = () => {
   return (
-    <div>ViewServices</div>
+    <h1>ViewServices</h1>
   )
 }
 

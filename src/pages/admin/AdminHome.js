@@ -2,7 +2,8 @@ import React from 'react'
 
 const AdminHome = () => {
   return (
-    <div>AdminHome</div>
+    <h1>TestHome
+    </h1>
   )
 }
 

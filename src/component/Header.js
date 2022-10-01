@@ -109,9 +109,12 @@ const Header = () => {
                 <Link to={'/addservices'} className='addservices'>
                     <li>Add Services</li>
                 </Link>
-                <Link to={'/viewservices'} className='viewservices'>
-                    <li>View Services</li>
+                <Link to={'/allservices'} className='allservices'>
+                    <li>All Services</li>
                 </Link>
+                {/* <Link to={'/viewservices'} className='viewservices'>
+                    <li>View Services</li>
+                </Link> */}
                 {/* <Link to={'/adminhome'} className='adminhome'>
                     <li>Home</li>
                 </Link> */}

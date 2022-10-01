@@ -7,18 +7,19 @@ import { Signin } from "./pages/Auth/Signin";
 import  Signup  from "./pages/Auth/Signup";
 import Cart from "./pages/Cart";
 import History from "./pages/History";
-import Admin from "./pages/Admin";
 import Reset from "./pages/Auth/Reset";
 
 import { ToastContainer } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";
 import Services from "./pages/Services";
-import AdminRoute from "./component/AdminRoute";
-import ViewServices from "./component/admin/ViewServices";
-import AddServices from "./component/admin/AddServices";
+// import AdminRoute from "./component/AdminRoute";
 import AdminHome from "./pages/admin/AdminHome";
 import OwnerHome from "./pages/owner/OwnerHome";
 import AdminOrders from "./pages/admin/AdminOrders";
+import AddServices from "./pages/admin/AddServices";
+// import ViewServices from "./pages/admin/ViewServices";
+import AdminAllServices from "./pages/admin/AdminAllServices";
+
 
 
 const App = () => {
@@ -50,7 +51,8 @@ const App = () => {
         
         <Route path="/adminhome" element={<AdminHome />} />
         <Route path="/addservices" element={<AddServices />} />
-        <Route path="/viewservices" element={<ViewServices />} />
+        <Route path="/allservices" element={<AdminAllServices />} />
+        {/* <Route path="/viewservices" element={<ViewServices />} /> */}
         <Route path="/adminorders" element={<AdminOrders />} />
 
         <Route path="/ownerhome" element={<OwnerHome />} />

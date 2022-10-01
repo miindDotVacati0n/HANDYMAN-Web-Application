@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ViewServices = () => {
+const AdminAllServices = () => {
   return (
     <div>ViewServices</div>
   )
 }
 
-export default ViewServices
+export default AdminAllServices

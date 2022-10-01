@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
+
+
+/* .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 100px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  } */
+  
+h1.headertext{
+    text-align: center;
+}
+
+.service{
+    font-family: 'Ubuntu', sans-serif;
+}
+.service .card {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.service form label {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.service form input[type="text"], .service form input[type="number"], .service form input[type="file"], .service form input[type="email"], .service form select, .service form textarea, .service form input[type="password"] {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 300;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 100%;
+    border: 1px solid #777;
+    border-radius: 3px;
+    outline: none;
+}
+.service form .progress {
+    background-color: rgb(5, 127, 72);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    /* text-align: center; */
+}
+.service form .progress .progress-bar {
+    background-color: var(--light-blue);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0 1rem;
+}
+.group {
+    border: 1px solid var(--dark-blue);
+    padding: 5px;
+}
