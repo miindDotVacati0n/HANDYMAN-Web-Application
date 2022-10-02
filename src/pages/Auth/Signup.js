@@ -47,7 +47,10 @@ const Signup = () => {
     return (
         <>
         {loading && <Loader />}
+        <br></br>
+        <br></br>
         <div className='form'>
+      
             <h2>Register</h2>
             <form onSubmit={registerUser}>
                 <input type={'text'} placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)}/>

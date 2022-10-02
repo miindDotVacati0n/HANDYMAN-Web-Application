@@ -60,24 +60,34 @@ export const Signin = () => {
         <>
         <ToastContainer />
         {loading && <Loader />}
+        <br></br>
+        <br></br>
         <div className="form">
             <h2>Login</h2>
             <form onSubmit={loginUser}>
                 <input type={'text'} placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <input type={'password'} placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <button type="submit" className="--btn --btn-primary --btn-block">Login</button>
+                
                 <div className="links">
+                <br></br>
                     <Link to={'/reset'}>Reset Password</Link>
                 </div>
+                <br></br>
                 <p>-- หรือ --</p>
             </form>
+            <br></br>
             <button className="--btn --btn-danger --btn-block" onClick={signInWithGoogle}>
                 <FcGoogle />
                 Login With Google
+                
             </button>
+            <br></br>
             <span className="register">
+            <br></br>
                 <p>Don't have an account?</p>
-                <Link to={'/signup'}>Register</Link>
+                <br></br>
+                <Link to={'/signup'}>Register here!</Link>
             </span>
         </div>
         </>
