@@ -17,8 +17,7 @@ import AdminHome from "./pages/admin/AdminHome";
 import OwnerHome from "./pages/owner/OwnerHome";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AddServices from "./pages/admin/AddServices";
-// import ViewServices from "./pages/admin/ViewServices";
-import AdminAllServices from "./pages/admin/AdminAllServices";
+import ViewServices from "./pages/admin/ViewServices";
 
 
 
@@ -51,8 +50,8 @@ const App = () => {
         
         <Route path="/adminhome" element={<AdminHome />} />
         <Route path="/addservices" element={<AddServices />} />
-        <Route path="/allservices" element={<AdminAllServices />} />
-        {/* <Route path="/viewservices" element={<ViewServices />} /> */}
+        {/* <Route path="/allservices" element={<AdminAllServices />} /> */}
+        <Route path="/allservices" element={<ViewServices />} />
         <Route path="/adminorders" element={<AdminOrders />} />
 
         <Route path="/ownerhome" element={<OwnerHome />} />

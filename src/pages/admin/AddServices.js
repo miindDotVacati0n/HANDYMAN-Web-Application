@@ -17,6 +17,12 @@ const initialState = {
   desc: "",
 }
 
+const categories = [
+  { id: 1, name: "Plumbing" },
+  { id: 2, name: "Electricity" }
+
+]
+
 const AddServices = () => {
 
   const [service, setService] = useState({
@@ -28,13 +34,7 @@ const AddServices = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate()
-  
 
-  const categories = [
-    { id: 1, name: "Plumbing" },
-    { id: 2, name: "Electricity" }
-
-  ]
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -68,13 +68,13 @@ const AddServices = () => {
 
   };
 
-  const addService = async (e) => {
+  const addService = (e) => {
     e.preventDefault()
-    // console.log(service)
+    console.log(service)
     setLoading(true)
 
     try {
-      const docRef = await addDoc(collection(db, "services"), {
+      const docRef = addDoc(collection(db, "services"), {
         name: service.name,
         imageURL: service.imageURL,
         price: Number(service.price),
@@ -86,7 +86,7 @@ const AddServices = () => {
       toast.success("Service uploaded successfully.")
       setUploadProgress(0)
       setLoading(false)
-      setService({...initialState})
+      setService({ ...initialState })
 
       navigate('/allservices')
     } catch (error) {
@@ -98,64 +98,60 @@ const AddServices = () => {
 
   return (
     <>
-    {loading && <Loader />}
-    <div className='service'>
-      <h1 className="headertext">Add New Service</h1>
-      <div className="card">
-        <form onSubmit={addService}>
-          <label>Service Name:</label>
-          <input type={'text'} placeholder='Service name' required name='name' value={service.name} onChange={(e) => handleInputChange(e)} />
+      {loading && <Loader />}
+      <div className='service'>
+      <br></br>
+        <h1 className="headertext">Add New Service</h1>
+        <br></br>
+        <div className="card">
+          <form onSubmit={addService}>
+            <label>Service Name:</label>
+            <input type={'text'} placeholder='Service name' required name='name' value={service.name} onChange={(e) => handleInputChange(e)} />
 
-          <label>Service Image:</label>
-          <div className='group'>
-            {uploadProgress === 0 ? null : (
-              <div className='progress'>
-                <div className='progess-bar' style={{ width: `${uploadProgress}%` }}>
-                  {uploadProgress < 100 ? `Uploading ${uploadProgress}` : `Upload Complete ${uploadProgress}%`}
+            <label>Service Image:</label>
+            <div className='group'>
+              {uploadProgress === 0 ? null : (
+                <div className='progress'>
+                  <div className='progess-bar' style={{ width: `${uploadProgress}%` }}>
+                    {uploadProgress < 100 ? `Uploading ${uploadProgress}` : `Upload Complete ${uploadProgress}%`}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            <input type={'file'} accept='image/*' placeholder='Service Image' name='image' onChange={(e) => handleImageChange(e)} />
+              <input type={'file'} accept='image/*' placeholder='Service Image' name='image' onChange={(e) => handleImageChange(e)} />
 
-            {service.imageURL === "" ? null : (
-              <input type={'text'} name='imageURL' placeholder='ImageURL' value={service.imageURL} disabled />
-            )}
+              {service.imageURL === "" ? null : (
+                <input type={'text'} name='imageURL' placeholder='ImageURL' value={service.imageURL} disabled />
+              )}
 
-          </div>
+            </div>
 
-          <input
-            type="number"
-            placeholder="Service price"
-            required
-            name="price"
-            value={service.price}
-            onChange={(e) => handleInputChange(e)}
-          />
+            <input type="number" placeholder="Service price" required name="price" value={service.price} onChange={(e) => handleInputChange(e)} />
 
-          <label>Service Category:</label>
-          <select required name='category' value={service.category} onChange={(e) => handleInputChange(e)}>
-            <option value={''} disabled>
-              --Choose service category--
-            </option>
-            {categories.map((cate) => {
-              return (
-                <option key={cate.id} value={cate.name}>
-                  {cate.name}
-                </option>
-              )
-            })}
-          </select>
+            <label>Service Category:</label>
+            <select required name='category' value={service.category} onChange={(e) => handleInputChange(e)}>
+              <option value={''} disabled>
+                --Choose service category--
+              </option>
+              {categories.map((cate) => {
+                return (
+                  <option key={cate.id} value={cate.name}>
+                    {cate.name}
+                  </option>
+                )
+              })}
+            </select>
 
-          <label>Service Description:</label>
-          <textarea name='desc' value={service.desc} onChange={(e) => handleInputChange(e)} cols={'30'} rows={'10'}></textarea>
+            <label>Service Description:</label>
+            <textarea name='desc' value={service.desc} onChange={(e) => handleInputChange(e)} cols={'30'} rows={'10'}></textarea>
 
-          <button className='--btn --btn-primary'>Save Service</button>
+            <button className='--btn --btn-primary'>Save Service</button>
 
-        </form>
+          </form>
+        </div>
+        <br></br>
+
       </div>
-
-    </div>
     </>
   )
 }
