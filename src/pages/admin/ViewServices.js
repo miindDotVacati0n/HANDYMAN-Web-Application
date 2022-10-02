@@ -11,6 +11,8 @@ import { async } from '@firebase/util';
 import { deleteObject, ref } from 'firebase/storage';
 
 import Notiflix from 'notiflix'
+import { useDispatch } from 'react-redux';
+import { STORE_SERVICES } from '../../redux/slice/serviceSlice';
 
 const ViewServices = () => {
 
@@ -18,9 +20,13 @@ const ViewServices = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const dispatch = useDispatch()
+
+  //แก้
   useEffect(() => {
     getServices()
-  },[])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   const getServices = () => {
     setLoading(true)
@@ -28,7 +34,7 @@ const ViewServices = () => {
     try {
       const servicesRef = (collection(db, "services"));
 
-      const q = query(servicesRef, orderBy("createAt", "desc"));
+      const q = query(servicesRef, orderBy("createdAt", "desc"));
 
 
       onSnapshot(q, (snapshot) => {
@@ -38,9 +44,16 @@ const ViewServices = () => {
           ...doc.data()
           
         }));
-        console.log(allServices);
+        // console.log(allServices);
         setServices(allServices);
         setLoading(false);
+
+        
+        dispatch(
+          STORE_SERVICES({
+          services: allServices,
+          })
+        );
       });
 
     } catch (error) {
@@ -128,14 +141,14 @@ const ViewServices = () => {
                   {category}
                 </td>
                 <td>
-                  {`${price} THB`}
+                  {`${price}THB`}
                 </td>
                 <td>
-                  <Link to={'/addservices'}>
+                  <Link to={`/addservices/${id}`}>
                     <AiFillEdit size={23} color="green" />
                     
                   </Link>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <FaTrashAlt size={18} color="red" onClick={() => confirmDelete(id, imageURL)} />
                 </td>
               </tr>
@@ -146,7 +159,6 @@ const ViewServices = () => {
       )}
     </div>
     </>
-    // <h1>test</h1>
   )
 }
 

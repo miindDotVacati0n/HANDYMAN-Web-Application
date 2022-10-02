@@ -1,4 +1,4 @@
-import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import React, { useState } from 'react'
 import { toast } from "react-toastify";
@@ -7,7 +7,10 @@ import Loader from '../../component/Loader';
 // import { collection, addDoc } from "../../config/config";
 // import Card from '../../component/Card';
 import './../../styles/Admin/AddServices.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { selectServices } from "../../redux/slice/serviceSlice";
+import { useSelector } from "react-redux";
+
 
 const initialState = {
   name: "",
@@ -25,8 +28,15 @@ const categories = [
 
 const AddServices = () => {
 
-  const [service, setService] = useState({
-    ...initialState
+  const { id } = useParams();
+
+  const services = useSelector(selectServices)
+  const serviceEdit = services.find((item) => item.id === id);
+  console.log(serviceEdit);
+
+  const [service, setService] = useState(() => {
+    const newState = detectForm(id, { ...initialState }, serviceEdit)
+    return newState;
   })
 
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -35,6 +45,13 @@ const AddServices = () => {
 
   const navigate = useNavigate()
 
+
+  function detectForm(id, f1, f2) {
+    if (id === 'ADD') {
+      return f1;
+    }
+    return f2
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -80,7 +97,7 @@ const AddServices = () => {
         price: Number(service.price),
         category: service.category,
         desc: service.desc,
-        createAt: Timestamp.now().toDate()
+        createdAt: Timestamp.now().toDate()
 
       });
       toast.success("Service uploaded successfully.")
@@ -96,15 +113,40 @@ const AddServices = () => {
     }
   }
 
+  const editService = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      setDoc(doc(db, "services", id), {
+        name: service.name,
+        imageURL: service.imageURL,
+        price: Number(service.price),
+        category: service.category,
+        desc: service.desc,
+        createdAt: serviceEdit.createdAt,
+        editedAt: Timestamp.now().toDate()
+      });
+
+      setLoading(false)
+      toast.success("Service Edited Successfully.")
+      navigate('/allservices')
+    } catch (error) {
+      toast.error(error.message)
+
+      setLoading(false)
+    }
+  };
+
   return (
     <>
       {loading && <Loader />}
       <div className='service'>
-      <br></br>
-        <h1 className="headertext">Add New Service</h1>
+        <br></br>
+        <h1 className="headertext">{detectForm(id, "Add New Service", "Edit Service")}</h1>
         <br></br>
         <div className="card">
-          <form onSubmit={addService}>
+          <form onSubmit={detectForm(id, addService, editService)}>
             <label>Service Name:</label>
             <input type={'text'} placeholder='Service name' required name='name' value={service.name} onChange={(e) => handleInputChange(e)} />
 
@@ -145,7 +187,7 @@ const AddServices = () => {
             <label>Service Description:</label>
             <textarea name='desc' value={service.desc} onChange={(e) => handleInputChange(e)} cols={'30'} rows={'10'}></textarea>
 
-            <button className='--btn --btn-primary'>Save Service</button>
+            <button className='--btn --btn-primary'>{detectForm(id, "Save Service", "Edit Service")}</button>
 
           </form>
         </div>
