@@ -1,12 +1,16 @@
-import { collection, doc, getDoc, onSnapshot, orderBy, query, where } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDoc, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loader from '../../component/Loader';
-import { db } from '../../config/config';
+import { db, storage } from '../../config/config';
 import { AiFillEdit } from 'react-icons/ai'
 import { FaTrashAlt } from 'react-icons/fa'
 import './../../styles/Admin/ViewServices.css'
+import { async } from '@firebase/util';
+import { deleteObject, ref } from 'firebase/storage';
+
+import Notiflix from 'notiflix'
 
 const ViewServices = () => {
 
@@ -45,16 +49,56 @@ const ViewServices = () => {
     }
   }
 
+  const confirmDelete = (id, imageURL) => {
+    Notiflix.Confirm.show(
+      'Delete Service?',
+      'You want to delete this "Services"',
+      'Delete',
+      'Cancel',
+      function okCb() {
+        deleteService(id, imageURL)
+      },
+      function cancelCb() {
+        console.log("Delete Canceled")
+      },
+      {
+        width: '320px',
+        borderRadius: '8px',
+        titleColor: "orangered",
+        okButtonBackground: "orangered",
+        cssAnimationStyle: "zoom"
+      },
+    );
+  }
+
+  const deleteService = async(id, imageURL) => {
+    try{
+      await deleteDoc(doc(db, "services", id))
+
+      const storageRef = ref(storage, imageURL);
+      await deleteObject(storageRef)
+
+      toast.success("Service deleted successfully.")
+
+    }catch(error){
+      toast.error(error.message)
+    }
+  }
+
   return (
     <>
+    {loading && <Loader />}
     <div className='table'>
       <br></br>
       <h2 className='headertext'>All Services</h2>
       <br></br>
 
       {services.length === 0 ? (
-        <p>No service found.</p>
+        
+        <p className='text'>No service found.</p>
+        
       ) : (
+        
         <table>
           <thead>
           <tr>
@@ -84,14 +128,15 @@ const ViewServices = () => {
                   {category}
                 </td>
                 <td>
-                  {`$${price}`}
+                  {`${price} THB`}
                 </td>
                 <td>
                   <Link to={'/addservices'}>
-                    <AiFillEdit size={18} color="green" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <FaTrashAlt size={18} color="red" />
+                    <AiFillEdit size={23} color="green" />
+                    
                   </Link>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                    <FaTrashAlt size={18} color="red" onClick={() => confirmDelete(id, imageURL)} />
                 </td>
               </tr>
               </tbody>
