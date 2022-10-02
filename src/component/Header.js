@@ -163,7 +163,12 @@ const Header = () => {
                     <li>My Orders</li>
                 </Link>
              </ShowOnLogin>
-            
+             <ShowOnLogin>
+                <a href='#home' style={{color: '#ff7722'}}>
+                    <FaUserCircle size={16} />
+                    Hi, {displayName}
+                </a>
+            </ShowOnLogin>
             <ShowOnLogin>
                 <Link to={'/'} className='logout' onClick={logoutUser}>
                     <li>Logout</li>
@@ -174,12 +179,7 @@ const Header = () => {
                     <li>Sign In</li>
                 </Link>
             </ShowOnLogout>
-            <ShowOnLogin>
-                <a href='#home' style={{color: '#ff7722'}}>
-                    <FaUserCircle size={16} />
-                    Hi, {displayName}
-                </a>
-            </ShowOnLogin>
+            
             
             {/* <Link to={'/signup'} className='signup'>
                 <li>Sign Up</li>
