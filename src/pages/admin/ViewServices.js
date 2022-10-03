@@ -1,5 +1,5 @@
 import { collection, deleteDoc, doc, getDoc, onSnapshot, orderBy, query, where } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loader from '../../component/Loader';
@@ -11,56 +11,61 @@ import { async } from '@firebase/util';
 import { deleteObject, ref } from 'firebase/storage';
 
 import Notiflix from 'notiflix'
-import { useDispatch } from 'react-redux';
-import { STORE_SERVICES } from '../../redux/slice/serviceSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectServices, STORE_SERVICES } from '../../redux/slice/serviceSlice';
+import useFetchCollection from '../../component/customHooks/useFetchCollection';
+
 
 const ViewServices = () => {
 
-  const [services, setServices] = useState([])
+  const { data, loading } = useFetchCollection("services")
 
-  const [loading, setLoading] = useState(false);
+  const services = useSelector(selectServices)
 
   const dispatch = useDispatch()
 
-  //แก้
   useEffect(() => {
-    getServices()
+    dispatch(
+              STORE_SERVICES({
+              services: data,
+              })
+            );
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
+  }, [dispatch, data]);
 
-  const getServices = () => {
-    setLoading(true)
+  // const getServices = () => {
+  //   setLoading(true)
 
-    try {
-      const servicesRef = (collection(db, "services"));
+  //   try {
+  //     const servicesRef = (collection(db, "services"));
 
-      const q = query(servicesRef, orderBy("createdAt", "desc"));
+  //     const q = query(servicesRef, orderBy("createdAt", "desc"));
 
 
-      onSnapshot(q, (snapshot) => {
-        console.log(snapshot.docs);
-        const allServices = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data()
+  //     onSnapshot(q, (snapshot) => {
+  //       console.log(snapshot.docs);
+  //       const allServices = snapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data()
           
-        }));
-        // console.log(allServices);
-        setServices(allServices);
-        setLoading(false);
+  //       }));
+  //       // console.log(allServices);
+  //       setServices(allServices);
+  //       setLoading(false);
 
         
-        dispatch(
-          STORE_SERVICES({
-          services: allServices,
-          })
-        );
-      });
+  //       dispatch(
+  //         STORE_SERVICES({
+  //         services: allServices,
+  //         })
+  //       );
+  //     });
 
-    } catch (error) {
-      setLoading(false)
-      toast.error(error.message)
-    }
-  }
+  //   } catch (error) {
+  //     setLoading(false)
+  //     toast.error(error.message)
+  //   }
+  // }
 
   const confirmDelete = (id, imageURL) => {
     Notiflix.Confirm.show(

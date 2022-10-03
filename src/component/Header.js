@@ -87,12 +87,17 @@ const Header = () => {
             {/* <Link to={'/about'} className='about'>
                 <li>About</li>
             </Link> */}
-            <Link to={'/services'} className='services'>
+            {/* services อันนี้จะเป็นหน้าที่ user เห็น */}
+            {/* <Link to={'/services'} className='services'>
                 <li>Services</li>
-            </Link>
+            </Link> */}
                 </OwnerDoNotShow>
                 
             </AdminDoNotShow>
+            {/* ใช้เสร็จแล้วลบทิ้ง แล้วไปใช้ด้านใน protected route */}
+            <Link to={'/services'} className='services'>
+                <li>Services</li>
+            </Link>
             
             <AdminLink>
                 {/* <Link to={'/admin'} className='admin'>

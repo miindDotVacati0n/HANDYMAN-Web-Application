@@ -1,5 +1,5 @@
 import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
 import React, { useState } from 'react'
 import { toast } from "react-toastify";
 import { db, storage } from '../../config/config'
@@ -10,7 +10,6 @@ import './../../styles/Admin/AddServices.css'
 import { useNavigate, useParams } from "react-router-dom";
 import { selectServices } from "../../redux/slice/serviceSlice";
 import { useSelector } from "react-redux";
-
 
 const initialState = {
   name: "",
@@ -116,6 +115,11 @@ const AddServices = () => {
   const editService = (e) => {
     e.preventDefault();
     setLoading(true);
+
+    if(service.imageURL !== serviceEdit.imageURL){
+      const storageRef = ref(storage, serviceEdit.imageURL);
+      deleteObject(storageRef)
+    }
 
     try {
       setDoc(doc(db, "services", id), {
