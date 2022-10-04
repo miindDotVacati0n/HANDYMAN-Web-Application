@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
 
-.product {
+.service {
     display: flex;
     position: relative;
     font-family: 'Ubuntu', sans-serif;
 }
-.product .filter {
+.service .filter {
     width: 20%;
     transition: all 0.3s;
 }
-.product .content {
+.service .content {
     width: 80%;
     padding-left: 5px;
     position: relative;
 }
-.product .content .icon {
+.service .content .icon {
     display: none;
     justify-content: center;
     align-items: center;
@@ -23,11 +23,11 @@
     top: 0;
     cursor: pointer;
 }
-.product .content .icon > * {
+.service .content .icon > * {
     padding-left: 5px;
 }
 @media screen and (max-width: 700px) {
-    .product .filter {
+    .service .filter {
         width: 50%;
         background-color: #fff;
         border: 2px solid var(--dark-blue);
@@ -37,13 +37,13 @@
         padding: 1rem;
         z-index: 99;
    }
-    .product .show {
+    .service .show {
         left: 0;
    }
-    .product .content {
+    .service .content {
         width: 100%;
    }
-    .product .content .icon {
+    .service .content .icon {
         display: flex;
    }
 }
