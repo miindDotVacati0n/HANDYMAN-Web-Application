@@ -7,14 +7,15 @@ import { list } from 'firebase/storage'
 import ServiceItem from './ServiceItem'
 import ServiceFilter from './ServiceFilter'
 import { useDispatch, useSelector } from 'react-redux'
-import { FILTER_BY_SEARCH, selectFilterServices } from '../../redux/slice/filterSlice'
-
+import { FILTER_BY_SEARCH, selectFilterServices, SORT_SERVICES } from '../../redux/slice/filterSlice'
 
 const ServiceList = ({services}) => {
 
   const [grid, setGrid] = useState(true)
 
   const [search, setSearch] = useState('')
+
+  const [sort, setSort] = useState('')
 
   const dispatch = useDispatch()
 
@@ -23,6 +24,10 @@ const ServiceList = ({services}) => {
   useEffect(() => {
     dispatch(FILTER_BY_SEARCH({services, search}))
   }, [dispatch, services, search])
+
+  useEffect(() => {
+    dispatch(SORT_SERVICES({services, sort}))
+  }, [dispatch, services, sort])
 
   return (
     <div className='service-list' id='service'>
@@ -44,12 +49,10 @@ const ServiceList = ({services}) => {
         {/* Sort Services */}
         <div className='sort'>
           <label>Sort by: </label>
-          <select>
+          <select value={sort} onChange={(e) => setSort(e.target.value)}>
             <option value={'latest'}>Latest</option>
             <option value={'lowest-price'}>Lowest Price</option>
             <option value={'highest-price'}>Hightest Price</option>
-            <option value={'a-z'}>A - Z</option>
-            <option value={'z-a'}>Z- A</option>
           </select>
         </div>
       </div>
