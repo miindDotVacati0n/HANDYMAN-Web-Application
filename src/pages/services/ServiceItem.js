@@ -15,7 +15,7 @@ const ServiceItem = ({service, grid, id, name, price, desc, imageURL}) => {
   }
   
   return (
-    <Card cardClass={grid ? `${'grid'}` : `{'list'}`}>
+    <Card cardClass={'grid'}>
       <Link to={`/service-details/${id}`}>
       <div className='img'>
         <img src={imageURL} alt={name} />

@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './../../styles/Pages/Services/ServiceList.css'
 import { BsFillGridFill } from 'react-icons/bs'
 import { FaList } from 'react-icons/fa'
 import Search from '../../component/search/Search'
 import { list } from 'firebase/storage'
 import ServiceItem from './ServiceItem'
+import ServiceFilter from './ServiceFilter'
+import { useDispatch, useSelector } from 'react-redux'
+import { FILTER_BY_SEARCH, selectFilterServices } from '../../redux/slice/filterSlice'
+
 
 const ServiceList = ({services}) => {
 
@@ -12,9 +16,18 @@ const ServiceList = ({services}) => {
 
   const [search, setSearch] = useState('')
 
+  const dispatch = useDispatch()
+
+  const filterServices = useSelector(selectFilterServices)
+
+  useEffect(() => {
+    dispatch(FILTER_BY_SEARCH({services, search}))
+  }, [dispatch, services, search])
+
   return (
     <div className='service-list' id='service'>
       <h2>Service List.</h2>
+      <ServiceFilter/>
       <div className='top'>
         <div className='icons'>
           <BsFillGridFill size={21} color='orangered' onClick={() => setGrid(true)} />
@@ -45,7 +58,7 @@ const ServiceList = ({services}) => {
           <p>No service found.</p>
         ) : (
           <>
-          {services.map((service) => {
+          {filterServices.map((service) => {
             // const {} = service;
             return(
               <div key={service.id}>

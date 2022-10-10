@@ -4,6 +4,7 @@ import './../../styles/Pages/Services/Services.css'
 import useFetchCollection from '../../component/customHooks/useFetchCollection'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectServices, STORE_SERVICES } from '../../redux/slice/serviceSlice'
+import ServiceFilter from './ServiceFilter'
 
 
 const Services = () => {
@@ -28,6 +29,7 @@ const Services = () => {
   return (
     <section>
       <div className={`container ${'service'}`}>
+        
         <div className='content'>
           <ServiceList services={services}/>
         </div>
