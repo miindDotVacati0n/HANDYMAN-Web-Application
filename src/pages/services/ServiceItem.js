@@ -16,7 +16,7 @@ const ServiceItem = ({service, grid, id, name, price, desc, imageURL}) => {
   
   return (
     <Card cardClass={grid ? `${'grid'}` : `{'list'}`}>
-      <Link to={`/service-details`}>
+      <Link to={`/service-details/${id}`}>
       <div className='img'>
         <img src={imageURL} alt={name} />
       </div>
@@ -28,7 +28,7 @@ const ServiceItem = ({service, grid, id, name, price, desc, imageURL}) => {
         </div>
         {!grid && <p className='desc'>{shortenText(desc, 200)}</p>}
 
-        <button className='--btn --btn-danger'>Add to cart</button>
+        <button className='btn'>Add to cart</button>
       </div>
     </Card>
   )

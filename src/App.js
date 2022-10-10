@@ -18,6 +18,7 @@ import AdminOrders from "./pages/admin/AdminOrders";
 import AddServices from "./pages/admin/AddServices";
 import ViewServices from "./pages/admin/ViewServices";
 import Services from "./pages/services/Services";
+import ServiceDetails from "./pages/services/ServiceDetails";
 
 
 
@@ -55,6 +56,8 @@ const App = () => {
         <Route path="/adminorders" element={<AdminOrders />} />
 
         <Route path="/ownerhome" element={<OwnerHome />} />
+
+        <Route path="/service-details/:id" element={<ServiceDetails />} />
 
 
       </Routes>

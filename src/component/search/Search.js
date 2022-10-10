@@ -13,6 +13,7 @@ const Search = ({ value, onChange }) => {
         value={value}
         onChange={onChange}
       />
+        
     </div>
   );
 }
