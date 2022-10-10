@@ -18,7 +18,7 @@ const ServiceList = ({services}) => {
       <div className='top'>
         <div className='icons'>
           <BsFillGridFill size={21} color='orangered' onClick={() => setGrid(true)} />
-          <FaList size={24} color='#00828c' onClick={() => setGrid(false)} />
+          {/* <FaList size={24} color='#00828c' onClick={() => setGrid(false)} /> */}
 
           <p>
             <b>10</b> Services found.

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
+
+.service-details {
+    /* padding: 1rem; */
+    margin-top: 1rem;
+    /* margin: auto;
+    display: block;
+    justify-content: center; */
+    display: block;
+    padding: 5px;
+    margin: 1rem;
+}
+
+.service-details .back{
+    line-height: 2;
+}
+
+.service-details .details{
+    line-height: 1.5;
+    /* padding: 0.5cm; */
+    /* width: 640px; 
+    padding: 25px; */
+    padding-top: 1rem;
+    margin: auto;
+    width: 640px; 
+    padding: 25px;
+}
+
+.service-details .content {
+    
+    width: 55%;
+    padding: 5px;
+    word-break: break-all; 
+    margin: auto;
+    width: 940px; 
+    padding: 1px;
+    
+}
+
+.service-details .price{
+    color: red;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.service-details .count {
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+    margin: auto;
+    width: 940px; 
+    padding: 1px;
+}
+
+.service-details .btn{
+    padding: 5px 40px 3px;
+    border-radius: 8px;
+    position: absolute;
+    right: 1045px;
+}
+
+/* @media screen and (max-width: 700px) {
+    .service-details .details {
+        flex-direction: column;
+   }
+    .service-details .details .img {
+        width: 100%;
+   }
+    .service-details .details .content {
+        width: 100%;
+   }
+} */
