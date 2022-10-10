@@ -31,7 +31,7 @@ const ServiceList = ({services}) => {
 
   return (
     <div className='service-list' id='service'>
-      <h2>Service List.</h2>
+      <h2 className="textheader">Service List.</h2>
       <ServiceFilter/>
       <div className='top'>
         <div className='icons'>

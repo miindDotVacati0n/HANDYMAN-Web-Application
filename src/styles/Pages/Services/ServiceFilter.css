@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
 
-.filter{
+.filter {
     display: flex;
 }
 
@@ -8,34 +8,42 @@
     margin-top: 1rem;
 }
 
+.filter .category {
+    padding: 1px 10px 0px 0px;
+}
+
 .filter .category button {
-    display: block;
-    text-align: left;
-    width: 80%;
-    height: 3rem;
-    font-size: 1.5rem;
+    /* display: block; */
+    /* text-align: center; */
+    /* width: 100%; */
+    /* height: 2rem; */
+    font-size: 1rem;
     border: none;
     background-color: transparent;
     cursor: pointer;
-    border-bottom: 1px solid #777;
+    /* border-bottom: 1px solid #777; */
+    padding: 18px 70px 1px 1px;
 }
 
-.filter .btn{
-    padding: 5px 40px;
+/* .filter .btn {
+    border: none;
+    color: white;
+    padding: 1px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+
     border-radius: 8px;
-    
-}
 
-@media screen and (max-width: 700px) {
-    .filter .category button {
-        width: 100%;
-   }
-    
-}
+} */
+
+
 .active {
     position: relative;
     padding-left: 1rem;
 }
+
 .active::before {
     content: "";
     position: absolute;

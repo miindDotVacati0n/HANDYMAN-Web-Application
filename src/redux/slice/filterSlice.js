@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { act } from 'react-dom/test-utils';
 
 const initialState = {
     filterServices: []
@@ -50,10 +49,20 @@ const filterSlice = createSlice({
         state.filterServices = tempServices
 
     },
+    FILTER_BY_CATEGORY(state, action){
+        const {services, category} = action.payload
+        let tempServices = []
+        if(category === "All"){
+            tempServices = services
+        }else{
+            tempServices = services.filter((service) => service.category === category)
+        }
+        state.filterServices = tempServices
+    },
   },
 });
 
-export const {FILTER_BY_SEARCH, SORT_SERVICES} = filterSlice.actions
+export const {FILTER_BY_SEARCH, SORT_SERVICES, FILTER_BY_CATEGORY} = filterSlice.actions
 
 export const selectFilterServices = (state) => state.filter.filterServices
 

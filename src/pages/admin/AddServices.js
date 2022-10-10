@@ -20,8 +20,8 @@ const initialState = {
 }
 
 const categories = [
-  { id: 1, name: "Plumbing" },
-  { id: 2, name: "Electricity" }
+  { id: 1, name: "ปะปา" },
+  { id: 2, name: "ไฟฟ้า" }
 
 ]
 
