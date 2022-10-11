@@ -8,6 +8,7 @@ import ServiceItem from './ServiceItem'
 import ServiceFilter from './ServiceFilter'
 import { useDispatch, useSelector } from 'react-redux'
 import { FILTER_BY_SEARCH, selectFilterServices, SORT_SERVICES } from '../../redux/slice/filterSlice'
+import Pagination from '../../component/pagination/Pagination'
 
 const ServiceList = ({services}) => {
 
@@ -16,6 +17,17 @@ const ServiceList = ({services}) => {
   const [search, setSearch] = useState('')
 
   const [sort, setSort] = useState('')
+
+  // Pagination states
+  const [currentPage, setCurrentPage] = useState(1)
+  const [servicesPerPage, setServicesPerPage] = useState(9)
+
+  // Get current services
+  const lastService = currentPage * servicesPerPage;
+  const firstService = lastService - servicesPerPage;
+  // const currentServices = filterServices.slice(
+  //   firstService, lastService
+  // );
 
   const dispatch = useDispatch()
 
@@ -72,6 +84,13 @@ const ServiceList = ({services}) => {
           </>
         )}
       </div>
+
+      {/* <Pagination 
+        servicesPerPage={servicesPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+        totalServices={filterServices.lenght}
+      /> */}
     </div>
   )
 }

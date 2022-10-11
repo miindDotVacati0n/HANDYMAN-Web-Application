@@ -21,7 +21,8 @@ const initialState = {
 
 const categories = [
   { id: 1, name: "ปะปา" },
-  { id: 2, name: "ไฟฟ้า" }
+  { id: 2, name: "ไฟฟ้า" },
+  { id: 3, name: "ตรวจสอบ" }
 
 ]
 

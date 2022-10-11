@@ -52,7 +52,7 @@ const filterSlice = createSlice({
     FILTER_BY_CATEGORY(state, action){
         const {services, category} = action.payload
         let tempServices = []
-        if(category === "All"){
+        if(category === "ทั้งหมด"){
             tempServices = services
         }else{
             tempServices = services.filter((service) => service.category === category)

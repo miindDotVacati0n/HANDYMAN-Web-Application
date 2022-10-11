@@ -19,10 +19,15 @@ const ServiceFilter = () => {
     }
 
     const allCategories = [
-        "All",
+        "ทั้งหมด",
         ...new Set(services.map((service) => service.category)),
     ];
     console.log(allCategories)
+
+    const clearFilters = () => {
+        setCategory("ทั้งหมด")
+        console.log("true")
+    }
 
     return (
         <div className='filter'>
@@ -34,7 +39,7 @@ const ServiceFilter = () => {
                         <button
                             key={index}
                             type="button"
-                            // className={`${category}` === cat ? `${"active"}` : null}
+                            className={`${category}` === cat ? `${"active"}` : null}
                             onClick={() => filterServices(cat)}
                         >
                             {cat}
@@ -45,8 +50,8 @@ const ServiceFilter = () => {
 
             </div>
 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button className='btn'>Clear Filter</button>
+            <br/>
+            <button className='btn' onClick={clearFilters}>Clear Filter</button>
         </div>
         
     )
