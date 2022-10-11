@@ -1,17 +1,25 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Card from '../../component/Card'
+import { ADD_TO_CART } from '../../redux/slice/cartSlice'
 import './../../styles/Pages/Services/ServiceItem.css'
 
 
 const ServiceItem = ({service, grid, id, name, price, desc, imageURL}) => {
   
+  const dispatch = useDispatch()
+
   const shortenText = (text, n) => {
     if(text.lenght > n){
       const shortenedText = text.substring(0, 15).concat('...')
       return shortenedText;
     }
     return text;
+  }
+
+  const addToCart = (service) => {
+    dispatch(ADD_TO_CART(service))
   }
   
   return (
@@ -28,7 +36,7 @@ const ServiceItem = ({service, grid, id, name, price, desc, imageURL}) => {
         </div>
         {!grid && <p className='desc'>{shortenText(desc, 200)}</p>}
 
-        <button className='btn'>Add to cart</button>
+        <button className='btn' onClick={() => addToCart(service)}>Add to cart</button>
       </div>
     </Card>
   )
