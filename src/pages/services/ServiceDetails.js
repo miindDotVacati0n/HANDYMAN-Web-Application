@@ -51,17 +51,17 @@ const ServiceDetails = () => {
           <p className='price'>{`${service.price}THB`}</p>
           <p className='desc'>{service.desc}</p>
         </div>
-
-        <div className='count'>
-          <button className='--btn'>-</button>
-          &nbsp;&nbsp;&nbsp;
-            <p><b>1</b></p>
-            &nbsp;&nbsp;&nbsp;
-          <button className='--btn'>+</button>
-        </div>
-        
-        <button className='btn'>ADD TO CART</button>
         <br/>
+        <div className='count'>
+          <button className='--btn'style={{width: "20px", height: "20px"}}>-</button>
+          
+            <p><b>1</b></p>
+            
+          <button className='--btn'style={{width: "20px", height: "20px"}}>+</button>
+        </div>
+        <br/>
+        <button className='btn btn-success'>ADD TO CART</button>
+        
       </div>
       
   )

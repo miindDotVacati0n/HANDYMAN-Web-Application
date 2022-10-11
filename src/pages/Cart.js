@@ -1,7 +1,7 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { selectCartItems, selectCartTotalAmount, selectCartTotalQuantity } from '../redux/slice/cartSlice'
+import { ADD_TO_CART, CALCULATE_SUBTOTAL, CALCULATE_TOTAL_QTY, CLEAR_CART, DECREASE_CART, REMOVE_FROM_CART, selectCartItems, selectCartTotalAmount, selectCartTotalQuantity } from '../redux/slice/cartSlice'
 import './../styles/Pages/Cart.css'
 import {FaTrashAlt} from 'react-icons/fa'
 import Card from '../component/Card'
@@ -12,6 +12,29 @@ const Cart = () => {
   const cartItems = useSelector(selectCartItems)
   const cartTotalAmount = useSelector(selectCartTotalAmount)
   const cartTotalQuantity = useSelector(selectCartTotalQuantity)
+
+  const dispatch = useDispatch()
+
+  const increaseCart = (cart) => {
+    dispatch(ADD_TO_CART(cart));
+  }
+
+  const decreaseCart = (cart) => {
+    dispatch(DECREASE_CART(cart))
+  }
+
+  const removeFromCart = (cart) => {
+    dispatch(REMOVE_FROM_CART(cart))
+  }
+
+  const clearCart = (cart) => {
+    dispatch(CLEAR_CART(cart))
+  }
+
+  useEffect(() => {
+    dispatch(CALCULATE_SUBTOTAL())
+    dispatch(CALCULATE_TOTAL_QTY())
+  }, [dispatch, cartItems])
 
   return (
     <section>
@@ -54,16 +77,16 @@ const Cart = () => {
                     <td>{price}</td>
                     <td>
                       <div className='count'>
-                        <button className='--btn'> - </button>
+                        <button className='--btn' style={{width: "20px", height: "20px"}} onClick={() => decreaseCart(cart)}> - </button>
                         <p>
                           <b>{cartQuantity}</b>
                         </p>
-                        <button className='--btn'> + </button>
+                        <button className='--btn' style={{width: "20px", height: "20px"}} onClick={() => increaseCart(cart)}> + </button>
                       </div>
                     </td>
                     <td>{(price * cartQuantity).toFixed(2)}</td>
                     <td className='icons'>
-                      <FaTrashAlt size={20} color='red' />
+                      <FaTrashAlt size={20} color='red' onClick={() => removeFromCart(cart)} />
                     </td>
                   </tr>
                 )
@@ -71,7 +94,7 @@ const Cart = () => {
             </tbody>
           </table>
           <div className='summary'>
-              <button className='--btn --btn-danger'>Clear Cart</button>
+              <button class='btn btn-danger' onClick={clearCart}>Clear Cart</button>
               <div className='checkout'>
                 <div>
                   <Link to={'/services'}>&larr; Continue Shopping</Link>
@@ -79,14 +102,17 @@ const Cart = () => {
                 <br/>
 
                 <Card cardClass={'card'}>
-                  <p>
+                  <p><b>
                     {`Cart item(s): ${cartTotalQuantity}`}
-                  </p>
+                  </b></p>
+                  <br/>
                   <div className='text'>
+                    
                     <h4>Subtotal: </h4>
                     <h3>{`${cartTotalAmount.toFixed(2)}THB`}</h3>
                   </div>
-                  <button className='--btn --btn-primary --btn-block'>Checkout</button>
+                  <br/>
+                  <button class='btn btn-primary btn-block'>Checkout</button>
                 </Card>
               </div>
           </div>

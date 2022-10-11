@@ -51,7 +51,7 @@ const ServiceFilter = () => {
             </div>
 
             <br/>
-            <button className='btn' onClick={clearFilters}>Clear Filter</button>
+            {/* <button className='btn' onClick={clearFilters}>Clear Filter</button> */}
         </div>
         
     )

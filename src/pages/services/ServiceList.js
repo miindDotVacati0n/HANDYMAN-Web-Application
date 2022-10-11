@@ -19,12 +19,12 @@ const ServiceList = ({services}) => {
   const [sort, setSort] = useState('')
 
   // Pagination states
-  const [currentPage, setCurrentPage] = useState(1)
-  const [servicesPerPage, setServicesPerPage] = useState(9)
+  // const [currentPage, setCurrentPage] = useState(1)
+  // const [servicesPerPage, setServicesPerPage] = useState(9)
 
   // Get current services
-  const lastService = currentPage * servicesPerPage;
-  const firstService = lastService - servicesPerPage;
+  // const lastService = currentPage * servicesPerPage;
+  // const firstService = lastService - servicesPerPage;
   // const currentServices = filterServices.slice(
   //   firstService, lastService
   // );
