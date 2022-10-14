@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
 
+
+.table .carthead{
+ text-align: center;
+ font-size: 1cm;
+ padding: 5px
+}
+
+.table .th-right{
+    text-align: right;
+}
+
+.table .td-right{
+    text-align: right;
+}
+
 .table {
     padding: 5px;
     width: 100%;
@@ -53,13 +68,18 @@
 .table .summary .card button {
     margin-top: 5px;
 }
-.count {
+.table .count {
     display: flex;
     align-items: center;
+    text-align: right;
+    
 }
-.count button {
-    border: 1px solid var(--darkblue);
-}
-.count > * {
+
+.table .count > * {
     margin-right: 1rem;
 }
+
+/* .summary .card{
+    border-style: solid;
+    border-width: medium;
+} */

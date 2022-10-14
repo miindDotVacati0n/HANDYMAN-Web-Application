@@ -39,7 +39,8 @@ const Cart = () => {
   return (
     <section>
       <div className={`container ${'table'}`}>
-        <h2>Shopping Cart</h2>
+        <h2 className='carthead'>Shopping Cart</h2>
+        <br/>
         {cartItems.lenght === 0 ? (
           <>
           <p>Your cart is currently empty</p>
@@ -55,9 +56,9 @@ const Cart = () => {
               <tr>
                 <th>s/n</th>
                 <th>Service</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
+                <th className='th-right'>Price</th>
+                <th className='th-right'>Quantity</th>
+                <th className='th-right'>Total</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -74,7 +75,7 @@ const Cart = () => {
                       </p>
                       <img src={imageURL} alt={name} style={{width: '100px'}}/>
                     </td>
-                    <td>{price}</td>
+                    <td className='td-right'>{price}</td>
                     <td>
                       <div className='count'>
                         <button className='--btn' style={{width: "20px", height: "20px"}} onClick={() => decreaseCart(cart)}> - </button>
@@ -84,7 +85,7 @@ const Cart = () => {
                         <button className='--btn' style={{width: "20px", height: "20px"}} onClick={() => increaseCart(cart)}> + </button>
                       </div>
                     </td>
-                    <td>{(price * cartQuantity).toFixed(2)}</td>
+                    <td className='td-right'>{(price * cartQuantity).toFixed(2)}</td>
                     <td className='icons'>
                       <FaTrashAlt size={20} color='red' onClick={() => removeFromCart(cart)} />
                     </td>

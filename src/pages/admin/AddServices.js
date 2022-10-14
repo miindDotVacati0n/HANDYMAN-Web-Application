@@ -148,7 +148,7 @@ const AddServices = () => {
       {loading && <Loader />}
       <div className='service'>
         <br></br>
-        <h1 className="headertext">{detectForm(id, "Add New Service", "Edit Service")}</h1>
+        <h1 className="addhead">{detectForm(id, "Add New Service", "Edit Service")}</h1>
         <br></br>
         <div className="card">
           <form onSubmit={detectForm(id, addService, editService)}>
@@ -172,7 +172,7 @@ const AddServices = () => {
               )}
 
             </div>
-
+                <label>Price</label>
             <input type="number" placeholder="Service price" required name="price" value={service.price} onChange={(e) => handleInputChange(e)} />
 
             <label>Service Category:</label>
