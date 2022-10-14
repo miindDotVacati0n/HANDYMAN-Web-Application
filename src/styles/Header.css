@@ -16,6 +16,10 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
+.header .logo .home{
+    font-size: 40px;
+}
+
 .logo{
     font-size: 30px;
 }

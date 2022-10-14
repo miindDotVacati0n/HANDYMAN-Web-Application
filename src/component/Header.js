@@ -25,7 +25,7 @@ const Header = () => {
     const [displayName, setdisplayName] = useState("");
 
     const [showMenu, setShowMenu] = useState(false);
-    
+
     const [scrollPage, setScrollPage] = useState(false)
 
     const cartTotalQuantity = useSelector(selectCartTotalQuantity)
@@ -36,10 +36,11 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const fixHeader = () => {
-        if (window.scrollY > 50){
+        if (window.scrollY > 50) {
             setScrollPage(true)
-        }else{
-        setScrollPage(false)}
+        } else {
+            setScrollPage(false)
+        }
     }
     window.addEventListener("scroll", fixHeader)
 
@@ -53,24 +54,24 @@ const Header = () => {
         signOut(auth).then(() => {
             toast.success("Logout successfully.");
             navigate('/');
-          }).catch((error) => {
+        }).catch((error) => {
             toast.error(error.message);
-          });
+        });
     };
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            if(user){
+            if (user) {
                 console.log(user);
                 // const uid = user.uid;
                 // console.log(user.displayName);
 
-                if(user.displayName == null){
+                if (user.displayName == null) {
                     const u1 = user.email.substring(0, user.email.indexOf("@"));
                     const uName = u1.charAt(0).toUpperCase() + u1.slice(1)
                     // console.log(uName);
                     setdisplayName(uName);
-                }else{
+                } else {
                     setdisplayName(user.displayName);
                 }
 
@@ -79,82 +80,86 @@ const Header = () => {
                     userName: user.displayName ? user.displayName : displayName,
                     userID: user.uid,
                 }));
-            }else{
+            } else {
                 setdisplayName("");
                 dispatch(REMOCE_ACTIVE_USER());
             }
         });
     }, [dispatch, displayName]);
 
-{/* <nav className='header'></nav> */}
-  return (
-    <nav className='header'>
-        <h3 className='logo'>HANDYMAN
-            {/* <Link to={'/'} className='home'>logo</Link> */}
-        </h3>
-        <ul className={isMobile ? 'nav-links-mobile' : 'nav-links'}
-        onClick={() => setIsMobile(false)}
-        > 
-            <AdminDoNotShow>
-                <OwnerDoNotShow>
-                    <Link to={'/'} className='home'>
-                <li>Home</li>
-            </Link>
-            {/* <Link to={'/about'} className='about'>
+    {/* <nav className='header'></nav> */ }
+    return (
+        <nav className='header'>
+            <h3 className='logo'><Link to={'/'} className='home'>HANDYMAN</Link>
+                {/* <Link to={'/'} className='home'>logo</Link> */}
+            </h3>
+            {/* <Link to={'/services'} className='services'>
+                    <li>Services</li>
+                </Link> */}
+            <ul className={isMobile ? 'nav-links-mobile' : 'nav-links'}
+                onClick={() => setIsMobile(false)}
+            >
+                
+                <AdminDoNotShow>
+                    <OwnerDoNotShow>
+                        {/* <Link to={'/'} className='home'>
+                            <li>Home</li>
+                        </Link> */}
+                        {/* <Link to={'/about'} className='about'>
                 <li>About</li>
             </Link> */}
-            {/* services อันนี้จะเป็นหน้าที่ user เห็น */}
-            {/* <Link to={'/services'} className='services'>
+                        {/* services อันนี้จะเป็นหน้าที่ user เห็น */}
+                        {/* <Link to={'/services'} className='services'>
                 <li>Services</li>
             </Link> */}
-                </OwnerDoNotShow>
-                
-            </AdminDoNotShow>
-            {/* ใช้เสร็จแล้วลบทิ้ง แล้วไปใช้ด้านใน protected route */}
-            <Link to={'/services'} className='services'>
-                <li>Services</li>
-            </Link>
-            
-            <AdminLink>
-                {/* <Link to={'/admin'} className='admin'>
+                    </OwnerDoNotShow>
+
+                </AdminDoNotShow>
+                {/* ใช้เสร็จแล้วลบทิ้ง แล้วไปใช้ด้านใน protected route */}
+                <Link to={'/services'} className='services'>
+                    <li>Services</li>
+                </Link>
+
+                <AdminLink>
+                    {/* <Link to={'/admin'} className='admin'>
                     <li>Admin</li>
                 </Link> */}
-                {/* <Link to={'/admin/home'}>
+                    {/* <Link to={'/admin/home'}>
                     <button className='btn'>
                         Admin
                     </button>
                 </Link> */}
-                <Link to={'/adminhome'} className='adminhome'>
+                    {/* <Link to={'/adminhome'} className='adminhome'>
                     <li>Home</li>
-                </Link>
-                <Link to={'/addservices/ADD'} className='addservices'>
-                    <li>Add Services</li>
-                </Link>
-                {/* <Link to={'/allservices'} className='allservices'>
+                </Link> */}
+                    <Link to={'/addservices/ADD'} className='addservices'>
+                        <li>Add Services</li>
+                    </Link>
+                    {/* <Link to={'/allservices'} className='allservices'>
                     <li>All Services</li>
                 </Link> */}
-                <Link to={'/allservices'} className='viewservices'>
-                    <li>View Services</li>
-                </Link>
-                {/* <Link to={'/adminhome'} className='adminhome'>
+                    <Link to={'/allservices'} className='viewservices'>
+                        <li>View Services</li>
+                    </Link>
+                    {/* <Link to={'/adminhome'} className='adminhome'>
                     <li>Home</li>
                 </Link> */}
-                <Link to={'/adminorders'} className='adminorders'>
-                    <li>Orders</li>
-                </Link>
-                
-            </AdminLink>
+                    <Link to={'/adminorders'} className='adminorders'>
+                        <li>Orders</li>
+                    </Link>
 
-            <OwnerRoute>
+                </AdminLink>
+
+                {/* <OwnerRoute>
             <Link to={'/ownerhome'} className='ownerhome'>
                     <li>Home</li>
                 </Link>
-            </OwnerRoute>
-            
-            
-            
+            </OwnerRoute> */}
 
-            {/* <div className='navbar-right'>
+
+
+
+                {/* <div className='navbar-right'>
             <Link to={'/cart'} className='cart'>
                 <li>Cart
                 <FaCartArrowDown size={20}/>
@@ -172,47 +177,47 @@ const Header = () => {
             </Link>
             </div> */}
 
-            <span className='cart'>
-                <Link to={'/cart'}>
-                    
-                    <FaCartArrowDown size={20}/>
-                    <p>{cartTotalQuantity}</p>
-                </Link>
-             </span>
-             <ShowOnLogin>
-                <Link to={'/history'} className='history'>
-                    <li>My Orders</li>
-                </Link>
-             </ShowOnLogin>
-             <ShowOnLogin>
-                <a href='#home' style={{color: '#ff7722'}}>
-                    <FaUserCircle size={16} />
-                    Hi, {displayName}
-                </a>
-            </ShowOnLogin>
-            <ShowOnLogin>
-                <Link to={'/'} className='logout' onClick={logoutUser}>
-                    <li>Logout</li>
-                </Link>
-            </ShowOnLogin>
-            <ShowOnLogout>
-                <Link to={'/signin'} className='signin'>
-                    <li>Sign In</li>
-                </Link>
-            </ShowOnLogout>
-            
-            
-            {/* <Link to={'/signup'} className='signup'>
+                <span className='cart'>
+                    <Link to={'/cart'}>
+
+                        <FaCartArrowDown size={20} />
+                        <p>{cartTotalQuantity}</p>
+                    </Link>
+                </span>
+                <ShowOnLogin>
+                    <Link to={'/history'} className='history'>
+                        <li>My Orders</li>
+                    </Link>
+                </ShowOnLogin>
+                <ShowOnLogin>
+                    <a href='#home' style={{ color: '#ff7722' }}>
+                        <FaUserCircle size={16} />
+                        Hi, {displayName}
+                    </a>
+                </ShowOnLogin>
+                <ShowOnLogin>
+                    <Link to={'/'} className='logout' onClick={logoutUser}>
+                        <li>Logout</li>
+                    </Link>
+                </ShowOnLogin>
+                <ShowOnLogout>
+                    <Link to={'/signin'} className='signin'>
+                        <li>Sign In</li>
+                    </Link>
+                </ShowOnLogout>
+
+
+                {/* <Link to={'/signup'} className='signup'>
                 <li>Sign Up</li>
             </Link> */}
-        </ul>
-        <button className='mobile-menu-icon'
-        onClick={() => setIsMobile(!isMobile)}
-        >
-            {isMobile ? <i className='fas fa-times'></i> : <i className='fas fa-bars'></i>}
-        </button>
-    </nav>
-  )
+            </ul>
+            <button className='mobile-menu-icon'
+                onClick={() => setIsMobile(!isMobile)}
+            >
+                {isMobile ? <i className='fas fa-times'></i> : <i className='fas fa-bars'></i>}
+            </button>
+        </nav>
+    )
 }
 
 export default Header
