@@ -9,12 +9,13 @@ import { auth } from '../config/config';
 
 import { toast } from "react-toastify";
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SET_ACTIVE_USER, REMOCE_ACTIVE_USER } from '../redux/slice/authSlice';
 
 import ShowOnLogin, { AdminDoNotShow, OwnerDoNotShow, ShowOnLogout } from './hiddenLink';
 import AdminRoute, { AdminLink } from './AdminRoute';
 import OwnerRoute from './OwnerRoute';
+import { CALCULATE_TOTAL_QTY, selectCartTotalQuantity } from '../redux/slice/cartSlice';
 
 
 const Header = () => {
@@ -24,8 +25,23 @@ const Header = () => {
     const [displayName, setdisplayName] = useState("");
 
     const [showMenu, setShowMenu] = useState(false);
+    
+    const [scrollPage, setScrollPage] = useState(false)
+
+    const cartTotalQuantity = useSelector(selectCartTotalQuantity)
+    useEffect(() => {
+        dispatch(CALCULATE_TOTAL_QTY())
+    }, [])
 
     const dispatch = useDispatch();
+
+    const fixHeader = () => {
+        if (window.scrollY > 50){
+            setScrollPage(true)
+        }else{
+        setScrollPage(false)}
+    }
+    window.addEventListener("scroll", fixHeader)
 
     const hideMenu = () => {
         setShowMenu(false);
@@ -70,7 +86,7 @@ const Header = () => {
         });
     }, [dispatch, displayName]);
 
-
+{/* <nav className='header'></nav> */}
   return (
     <nav className='header'>
         <h3 className='logo'>HANDYMAN
@@ -160,7 +176,7 @@ const Header = () => {
                 <Link to={'/cart'}>
                     
                     <FaCartArrowDown size={20}/>
-                    <p>0</p>
+                    <p>{cartTotalQuantity}</p>
                 </Link>
              </span>
              <ShowOnLogin>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Card from '../../component/Card'
-import { ADD_TO_CART } from '../../redux/slice/cartSlice'
+import { ADD_TO_CART, CALCULATE_TOTAL_QTY } from '../../redux/slice/cartSlice'
 import './../../styles/Pages/Services/ServiceItem.css'
 
 
@@ -20,6 +20,7 @@ const ServiceItem = ({service, grid, id, name, price, desc, imageURL}) => {
 
   const addToCart = (service) => {
     dispatch(ADD_TO_CART(service))
+    dispatch(CALCULATE_TOTAL_QTY())
   }
   
   return (
