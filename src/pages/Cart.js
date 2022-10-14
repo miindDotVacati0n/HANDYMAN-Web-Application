@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { ADD_TO_CART, CALCULATE_SUBTOTAL, CALCULATE_TOTAL_QTY, CLEAR_CART, DECREASE_CART, REMOVE_FROM_CART, selectCartItems, selectCartTotalAmount, selectCartTotalQuantity } from '../redux/slice/cartSlice'
+import { Link, useNavigate } from 'react-router-dom'
+import { ADD_TO_CART, CALCULATE_SUBTOTAL, CALCULATE_TOTAL_QTY, CLEAR_CART, DECREASE_CART, REMOVE_FROM_CART, SAVE_URL, selectCartItems, selectCartTotalAmount, selectCartTotalQuantity } from '../redux/slice/cartSlice'
 import './../styles/Pages/Cart.css'
 import {FaTrashAlt} from 'react-icons/fa'
 import Card from '../component/Card'
+import { selectIsLoggedIn } from '../redux/slice/authSlice'
 
 
 const Cart = () => {
@@ -14,6 +15,9 @@ const Cart = () => {
   const cartTotalQuantity = useSelector(selectCartTotalQuantity)
 
   const dispatch = useDispatch()
+
+  const isLoggedIn = useSelector(selectIsLoggedIn)
+  const navigate = useNavigate()
 
   const increaseCart = (cart) => {
     dispatch(ADD_TO_CART(cart));
@@ -34,7 +38,20 @@ const Cart = () => {
   useEffect(() => {
     dispatch(CALCULATE_SUBTOTAL())
     dispatch(CALCULATE_TOTAL_QTY())
+    dispatch(SAVE_URL(""))
   }, [dispatch, cartItems])
+
+  const url = window.location.href;
+  console.log(url)
+
+  const checkout = () => {
+    if(isLoggedIn){
+      navigate('/checkout-details')
+    }else{
+      dispatch(SAVE_URL(url))
+      navigate('/signin')
+    }
+  }
 
   return (
     <section>
@@ -57,7 +74,7 @@ const Cart = () => {
                 <th>s/n</th>
                 <th>Service</th>
                 <th className='th-right'>Price</th>
-                <th className='th-right'>Quantity</th>
+                <th>Quantity</th>
                 <th className='th-right'>Total</th>
                 <th>Action</th>
               </tr>
@@ -113,7 +130,7 @@ const Cart = () => {
                     <h3>{`${cartTotalAmount.toFixed(2)}THB`}</h3>
                   </div>
                   <br/>
-                  <button class='btn btn-primary btn-block'>Checkout</button>
+                  <button class='btn btn-primary btn-block' onClick={checkout}>Checkout</button>
                 </Card>
               </div>
           </div>
