@@ -3,12 +3,15 @@ import authReducer from './slice/authSlice'
 import serviceReducer from './slice/serviceSlice';
 import filterReducer from './slice/filterSlice';
 import cartReducer from './slice/cartSlice';
+import checkoutReducer from './slice/checkoutSlice';
+
 
 const rootReducer = combineReducers({
     auth: authReducer,
     service: serviceReducer,
     filter: filterReducer,
     cart: cartReducer,
+    checkout: checkoutReducer,
 });
 
 const store = configureStore({

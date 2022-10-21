@@ -172,7 +172,7 @@ const AddServices = () => {
               )}
 
             </div>
-                <label>Price</label>
+                <label>Price:</label>
             <input type="number" placeholder="Service price" required name="price" value={service.price} onChange={(e) => handleInputChange(e)} />
 
             <label>Service Category:</label>

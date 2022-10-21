@@ -53,33 +53,39 @@
     display: flex;
     justify-content: space-between;
     align-items: start;
+    padding: 10px;
 }
-.table .summary .card {
+
+.table .summary .total {
+    /* margin-left: 20cm; */
     padding: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
 }
-.table .summary .card .text {
+.table .summary .total .text {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.table .summary .card .text h3 {
+.table .summary .total .text h3 {
     color: var(--color-danger);
 }
-.table .summary .card button {
+.table .summary .total button {
     margin-top: 5px;
 }
 .table .count {
     display: flex;
     align-items: center;
     text-align: right;
-    
+    /* padding-left: auto; */
 }
 
 .table .count > * {
     margin-right: 1rem;
 }
 
-/* .summary .card{
+/* .summary .total{
     border-style: solid;
     border-width: medium;
 } */

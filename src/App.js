@@ -19,6 +19,8 @@ import AddServices from "./pages/admin/AddServices";
 import ViewServices from "./pages/admin/ViewServices";
 import Services from "./pages/services/Services";
 import ServiceDetails from "./pages/services/ServiceDetails";
+import CheckoutDetails from "./pages/checkout/CheckoutDetails";
+import Checkout from "./pages/checkout/Checkout";
 
 
 
@@ -59,6 +61,8 @@ const App = () => {
 
         <Route path="/service-details/:id" element={<ServiceDetails />} />
 
+        <Route path="/checkout-details" element={<CheckoutDetails/>} />
+        <Route path="/checkout" element={<Checkout/>} />
 
       </Routes>
     </Router>

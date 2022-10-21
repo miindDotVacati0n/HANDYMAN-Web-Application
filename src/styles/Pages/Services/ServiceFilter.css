@@ -9,7 +9,8 @@
 }
 
 .filter .category {
-    padding: 1px 10px 0px 0px;
+    display: flex;
+    padding: 0px 10px 0px 0px;
 }
 
 .filter .category button {
@@ -22,7 +23,7 @@
     background-color: transparent;
     cursor: pointer;
     /* border-bottom: 1px solid #777; */
-    padding: 15px 70px 1px 1px;
+    padding: 5px 40px 10px 1px;
 }
 
 /* .filter .btn {
