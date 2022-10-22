@@ -1,0 +1,46 @@
+.table {
+    padding: 5px;
+    width: 100%;
+    overflow-x: auto;
+}
+.table table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.4rem;
+}
+.table table thead {
+    border-top: 2px solid cornflowerblue;
+    border-bottom: 2px solid cornflowerblue;
+}
+.table table th {
+    border: 1px solid #eee;
+}
+.table table th, .table table td {
+    vertical-align: top;
+    text-align: left;
+    padding: 8px;
+}
+
+.table table tr {
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.table .histd-right{
+    text-align: right;
+}
+.table .histh-right{
+    text-align: right;
+}
+
+.table table tr:nth-child(even) {
+    background-color: #eee;
+}
+.table table .pending {
+    color: orangered;
+    font-weight: 500;
+}
+.table table .successed {
+    color: green;
+    font-weight: 500;
+}

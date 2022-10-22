@@ -22,7 +22,8 @@ import ServiceDetails from "./pages/services/ServiceDetails";
 import CheckoutDetails from "./pages/checkout/CheckoutDetails";
 import Checkout from "./pages/checkout/Checkout";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
-import OrderHistory from "./pages/OrderHistory";
+import OrderHistory from "./pages/order/OrderHistory";
+
 
 
 

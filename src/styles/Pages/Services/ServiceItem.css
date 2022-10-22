@@ -22,7 +22,7 @@
     width: 100%;
     max-height: 75%;
     overflow: hidden;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid rgb(255, 255, 255);
 }
 .grid .img img {
     width: 70%;

@@ -98,7 +98,6 @@ const CheckoutForm = () => {
         redirect: "if_required",
       })
       .then((result) => {
-        // ok - paymentIntent // bad - error
         if (result.error) {
           toast.error(result.error.message);
           setMessage(result.error.message);
