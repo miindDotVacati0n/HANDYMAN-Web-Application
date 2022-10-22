@@ -2,22 +2,22 @@ import { createSlice } from '@reduxjs/toolkit'
 import { act } from 'react-dom/test-utils';
 
 const initialState = {
-    address: {},
+    billingAddress: {},
 }
 
 const checkoutSlice = createSlice({
   name: 'checkout',
   initialState,
   reducers: {
-    SAVE_ADDRESS(state, action){
+    SAVE_BILLING_ADDRESS(state, action){
         console.log(action.payload)
-        state.address = action.payload
+        state.billingAddress = action.payload
     }
   }
 });
 
-export const {SAVE_ADDRESS} = checkoutSlice.actions
+export const {SAVE_BILLING_ADDRESS} = checkoutSlice.actions
 
-export const selectAddress = (state) => state.checkout.address
+export const selectBillingAddress = (state) => state.checkout.billingAddress
 
 export default checkoutSlice.reducer

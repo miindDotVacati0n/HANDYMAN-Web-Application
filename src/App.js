@@ -21,6 +21,8 @@ import Services from "./pages/services/Services";
 import ServiceDetails from "./pages/services/ServiceDetails";
 import CheckoutDetails from "./pages/checkout/CheckoutDetails";
 import Checkout from "./pages/checkout/Checkout";
+import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
+import OrderHistory from "./pages/OrderHistory";
 
 
 
@@ -40,7 +42,7 @@ const App = () => {
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/history" element={<History />} />
+        {/* <Route path="/history" element={<History />} /> */}
         {/* <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>}> */}
         {/* <Route path='home' element={<Home />} />
           <Route path="all-services" element={<ViewServices />} />
@@ -63,6 +65,9 @@ const App = () => {
 
         <Route path="/checkout-details" element={<CheckoutDetails/>} />
         <Route path="/checkout" element={<Checkout/>} />
+        <Route path="/checkout-success" element={<CheckoutSuccess/>} />
+
+        <Route path="/order-history" element={<OrderHistory/>} />
 
       </Routes>
     </Router>
