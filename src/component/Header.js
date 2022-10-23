@@ -99,7 +99,7 @@ const Header = () => {
             <ul className={isMobile ? 'nav-links-mobile' : 'nav-links'}
                 onClick={() => setIsMobile(false)}
             >
-                
+
                 <AdminDoNotShow>
                     <OwnerDoNotShow>
                         {/* <Link to={'/'} className='home'>
@@ -132,6 +132,7 @@ const Header = () => {
                     {/* <Link to={'/adminhome'} className='adminhome'>
                     <li>Home</li>
                 </Link> */}
+                    
                     <Link to={'/addservices/ADD'} className='addservices'>
                         <li>Add Services</li>
                     </Link>
@@ -146,6 +147,9 @@ const Header = () => {
                 </Link> */}
                     <Link to={'/adminorders'} className='adminorders'>
                         <li>Orders</li>
+                    </Link>
+                    <Link to={'/dashboard'} className='dashboard'>
+                        <li>Dashboard</li>
                     </Link>
 
                 </AdminLink>

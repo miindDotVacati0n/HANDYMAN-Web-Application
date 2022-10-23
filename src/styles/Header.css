@@ -32,6 +32,7 @@
 }
 
 .home,
+.dashboard,
 .about,
 .services,
 .adservs,
@@ -102,6 +103,7 @@
     }
 
     .home,
+    .dashboard,
     .about,
     .services,
     .adservs,

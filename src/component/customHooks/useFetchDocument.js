@@ -1,8 +1,7 @@
-import { doc, getDoc } from 'firebase/firestore';
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify';
-import { db } from '../../config/config';
-
+import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { db } from "../../config/config";
 
 const useFetchDocument = (collectionName, documentID) => {
   const [document, setDocument] = useState(null);
@@ -30,4 +29,4 @@ const useFetchDocument = (collectionName, documentID) => {
   return { document };
 };
 
-export default useFetchDocument
+export default useFetchDocument;

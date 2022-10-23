@@ -25,6 +25,7 @@ import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import OrderHistory from "./pages/order/OrderHistory";
 import OrderDetails from "./pages/order/OrderDetails";
 import AdminOrderDetails from "./pages/admin/AdminOrderDetails";
+import Dashboard from "./pages/admin/Dashboard";
 
 
 const App = () => {
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/allservices" element={<ViewServices />} />
         <Route path="/adminorders" element={<AdminOrders />} />
         <Route path="/admin/order-details/:id" element={<AdminOrderDetails/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
         <Route path="/ownerhome" element={<OwnerHome />} />
 

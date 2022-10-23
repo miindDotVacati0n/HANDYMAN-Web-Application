@@ -35,7 +35,7 @@ const ServiceDetails = () => {
   }, []);
 
   const getService = async () => {
-    console.log("Getting Service")
+    // console.log("Getting Service")
     const docRef = doc(db, "services", id);
     const docSnap = await getDoc(docRef);
 

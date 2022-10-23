@@ -13,12 +13,12 @@ const AdminOrders = () => {
   const orders = useSelector(selectOrderHistory)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const userID = useSelector(selectUserID)
+  // const userID = useSelector(selectUserID)
 
   // const filteredOrders = orders.filter((order) => order.userID === userID)
 
   const handleClick = (id) => {
-    navigate('/admin/order-details/${id}')
+    navigate(`/admin/order-details/${id}`)
   }
 
   useEffect(() => {
