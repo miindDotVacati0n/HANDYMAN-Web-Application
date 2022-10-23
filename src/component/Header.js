@@ -185,7 +185,7 @@ const Header = () => {
                     </Link>
                 </span>
                 <ShowOnLogin>
-                    <Link to={'/history'} className='history'>
+                    <Link to={'/order-history'} className='history'>
                         <li>My Orders</li>
                     </Link>
                 </ShowOnLogin>

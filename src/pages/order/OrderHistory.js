@@ -5,13 +5,22 @@ import { selectUserID } from '../../redux/slice/authSlice'
 import { selectOrderHistory, STORE_ORDERS } from '../../redux/slice/orderSlice'
 import '../../styles/Pages/Order/OrderHistory.css'
 import Loader from '../../component/Loader';
+import { useNavigate } from 'react-router-dom'
+
 
 const OrderHistory = () => {
 
   const {data, isLoading} = useFetchCollection('orders')
   const orders = useSelector(selectOrderHistory)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const userID = useSelector(selectUserID)
+
+  const filteredOrders = orders.filter((order) => order.userID === userID)
+
+  const handleClick = (id) => {
+    navigate('/order-details/${id}')
+  }
 
   useEffect(() => {
     dispatch(STORE_ORDERS(data))
@@ -40,10 +49,10 @@ const OrderHistory = () => {
                 </tr>
               </thead>
               <tbody>
-                {orders.map((order, index) => {
+                {filteredOrders.map((order, index) => {
                   const {id, orderDate, orderTime, orderAmount, orderStatus} = order
                   return(
-                    <tr key={id}>
+                    <tr key={id} onClick={() => handleClick(id)}>
                       <td>{index + 1}</td>
                       <td>{orderDate} at {orderTime}</td>
                       <td>{id}</td>

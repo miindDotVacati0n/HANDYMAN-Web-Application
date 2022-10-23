@@ -50,7 +50,7 @@ const CheckoutDetails = () => {
         <form onSubmit={handleSubmit}>
           <div className='check-details'>
             <div className='address'>
-              <h3>Shipping Address</h3>
+              <h3>Billing Address</h3>
               <label>Name:</label>
               <input type="text" placeholder="Name" required name='name' value={billingAddress.name} onChange={(e) => handleBilling(e)} />
               <label>Address line 1:</label>

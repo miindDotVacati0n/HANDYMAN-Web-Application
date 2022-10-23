@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import useFetchDocument from '../../component/customHooks/useFetchDocument';
 import { db } from '../../config/config';
 import { ADD_TO_CART, CALCULATE_TOTAL_QTY, DECREASE_CART, selectCartItems } from '../../redux/slice/cartSlice';
 import './../../styles/Pages/Services/ServiceDetails.css'
@@ -11,19 +12,22 @@ import './../../styles/Pages/Services/ServiceDetails.css'
 const ServiceDetails = () => {
 
   const { id } = useParams();
-  console.log(id)
   const [service, setService] = useState('');
-
   const dispatch = useDispatch()
-
   const cartItems = useSelector(selectCartItems)
+
+  // const { document } = useFetchDocument("services", id)
+
   const cart = cartItems.find((cart) => cart.id === id)
 
   const isCartAdded = cartItems.findIndex((cart) => {
     return cart.id === id
   })
 
-
+  // useEffect(() => {
+  //   setService(document)
+  // }, [document])
+  
 
   useEffect(() => {
     getService();

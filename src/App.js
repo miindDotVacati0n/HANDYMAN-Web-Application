@@ -23,8 +23,8 @@ import CheckoutDetails from "./pages/checkout/CheckoutDetails";
 import Checkout from "./pages/checkout/Checkout";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 import OrderHistory from "./pages/order/OrderHistory";
-
-
+import OrderDetails from "./pages/order/OrderDetails";
+import AdminOrderDetails from "./pages/admin/AdminOrderDetails";
 
 
 const App = () => {
@@ -59,6 +59,7 @@ const App = () => {
         {/* <Route path="/allservices" element={<AdminAllServices />} /> */}
         <Route path="/allservices" element={<ViewServices />} />
         <Route path="/adminorders" element={<AdminOrders />} />
+        <Route path="/admin/order-details/:id" element={<AdminOrderDetails/>} />
 
         <Route path="/ownerhome" element={<OwnerHome />} />
 
@@ -69,6 +70,7 @@ const App = () => {
         <Route path="/checkout-success" element={<CheckoutSuccess/>} />
 
         <Route path="/order-history" element={<OrderHistory/>} />
+        <Route path="/order-details/:id" element={<OrderDetails/>} />
 
       </Routes>
     </Router>
