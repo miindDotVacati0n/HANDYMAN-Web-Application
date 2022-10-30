@@ -14,7 +14,7 @@ import { SET_ACTIVE_USER, REMOCE_ACTIVE_USER } from '../redux/slice/authSlice';
 
 import ShowOnLogin, { AdminDoNotShow, OwnerDoNotShow, ShowOnLogout } from './hiddenLink';
 import AdminRoute, { AdminLink } from './AdminRoute';
-import OwnerRoute from './OwnerRoute';
+import OwnerRoute, { OwnerLink } from './OwnerRoute';
 import { CALCULATE_TOTAL_QTY, selectCartTotalQuantity } from '../redux/slice/cartSlice';
 
 
@@ -112,6 +112,7 @@ const Header = () => {
                         {/* <Link to={'/services'} className='services'>
                 <li>Services</li>
             </Link> */}
+
                     </OwnerDoNotShow>
 
                 </AdminDoNotShow>
@@ -132,7 +133,7 @@ const Header = () => {
                     {/* <Link to={'/adminhome'} className='adminhome'>
                     <li>Home</li>
                 </Link> */}
-                    
+
                     <Link to={'/addservices/ADD'} className='addservices'>
                         <li>Add Services</li>
                     </Link>
@@ -153,6 +154,19 @@ const Header = () => {
                     </Link>
 
                 </AdminLink>
+
+                <OwnerLink>
+                    
+                    <Link to={'/allservices'} className='viewservices'>
+                        <li>View Services</li>
+                    </Link>
+                    <Link to={'/adminorders'} className='adminorders'>
+                        <li>Orders</li>
+                    </Link>
+                    <Link to={'/dashboard'} className='dashboard'>
+                        <li>Dashboard</li>
+                    </Link>
+                </OwnerLink>
 
                 {/* <OwnerRoute>
             <Link to={'/ownerhome'} className='ownerhome'>

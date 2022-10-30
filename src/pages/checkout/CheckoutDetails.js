@@ -7,30 +7,30 @@ import CheckoutSummary from './CheckoutSummary';
 
 
 
-const initailAddressState = {
-  name: "",
-  line1: "",
-  line2: "",
-  city: "",
-  state: "",
-  postal_code: "",
-  phone: "",
-};
+// const initailAddressState = {
+//   name: "",
+//   line1: "",
+//   line2: "",
+//   city: "",
+//   state: "",
+//   postal_code: "",
+//   phone: "",
+// };
 
 const CheckoutDetails = () => {
 
-  const [billingAddress, setBillingAddress] = useState({...initailAddressState})
+  // const [billingAddress, setBillingAddress] = useState({ ...initailAddressState })
 
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
 
-  const handleBilling = (e) => {
-    const {name, value} = e.target;
-    setBillingAddress({
-      ...billingAddress,[name]: value,
-    })
-  }
+  // const handleBilling = (e) => {
+  //   const { name, value } = e.target;
+  //   setBillingAddress({
+  //     ...billingAddress, [name]: value,
+  //   })
+  // }
 
   // const handleBilling = () => {
 
@@ -38,8 +38,8 @@ const CheckoutDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(billingAddress)
-    dispatch(SAVE_BILLING_ADDRESS(billingAddress))
+    // console.log(billingAddress)
+    // dispatch(SAVE_BILLING_ADDRESS(billingAddress))
     navigate('/checkout')
   }
 
@@ -48,9 +48,9 @@ const CheckoutDetails = () => {
       <div className={'checkout'}>
         <h2 className='texthead-check'>Checkout Details</h2>
         <form onSubmit={handleSubmit}>
-          <div className='check-details'>
-            <div className='address'>
-              <h3>Billing Address</h3>
+          {/* <div className='check-details'> */}
+          {/* <div className='address'> */}
+          {/* <h3>Billing Address</h3>
               <label>Name:</label>
               <input type="text" placeholder="Name" required name='name' value={billingAddress.name} onChange={(e) => handleBilling(e)} />
               <label>Address line 1:</label>
@@ -69,14 +69,21 @@ const CheckoutDetails = () => {
                
               
               <button type='submit' className='btn btn-primary'>Proceed To Checkout</button>
-            </div>
-            
-          </div>
+            </div> */}
+
+
+          {/* </div> */}
+
           <div>
             <div className='summary'>
-              <CheckoutSummary/>
+              <CheckoutSummary />
+            </div>
+            <div className='submit'>
+              <br />
+              <button type='submit' className='btn btn-primary'>Proceed To Checkout</button>
             </div>
           </div>
+
         </form>
       </div>
     </section>

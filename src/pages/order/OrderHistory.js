@@ -28,9 +28,9 @@ const OrderHistory = () => {
   
   return (
     <section>
-      <div className={`container ${'order'}`}>
-        <h2>Your Order History</h2>
-        <p>Open an order to leave a <b>Product Review</b></p>
+      <div className='order'>
+        <h2>Your Order</h2>
+        {/* <p>Open an order to leave a <b>Service Review</b></p> */}
         <br/>
         <>
         {isLoading && <Loader/>}

@@ -10,7 +10,7 @@ import { selectServices, STORE_SERVICES } from '../../redux/slice/serviceSlice';
 import '../../styles/Admin/Dashboard.css'
 
 const earningIcon = <AiFillDollarCircle size={30} color="#b624ff" />;
-const productIcon = <BsCart4 size={30} color="#1f93ff" />;
+const serviceIcon = <BsCart4 size={30} color="#1f93ff" />;
 const ordersIcon = <FaCartArrowDown size={30} color="orangered" />;
 
 const Dashboard = () => {
@@ -46,9 +46,9 @@ const Dashboard = () => {
           />
           <InfoBox
             cardClass={`${'card'} ${'card2'}`}
-            title={"Products"}
+            title={"Services"}
             count={services.length}
-            icon={productIcon}
+            icon={serviceIcon}
           />
           <InfoBox
             cardClass={`${'card'} ${'card3'}`}

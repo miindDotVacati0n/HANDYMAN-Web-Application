@@ -34,18 +34,6 @@ const filterSlice = createSlice({
             });
         }
 
-        // if(sort === "a-z"){
-        //     tempServices = services.slice().sort((a, b) => {
-        //         return a.name.localeCompare(b.name);
-        //     });
-        // }
-
-        // if(sort === "z-a"){
-        //     tempServices = services.slice().sort((a, b) => {
-        //         return b.name.localeCompare(a.name);
-        //     });
-        // }
-
         state.filterServices = tempServices
 
     },

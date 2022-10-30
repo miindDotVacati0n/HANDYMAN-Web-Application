@@ -9,6 +9,16 @@ const OwnerRoute = ({children}) => {
     if(userEmail === "owner@test.dev"){
         return children
     }
+return null
+}
+
+export const OwnerLink = ({ children }) => {
+
+    const userEmail = useSelector(selectEmail)
+
+    if (userEmail === "owner@test.dev") {
+        return children
+    }
     return null
 }
 

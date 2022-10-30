@@ -35,7 +35,7 @@ const CheckoutSummary = () => {
               const { id, name, price, cartQuantity } = item;
               return (
                 <div key={id} className='service-sum'>
-                  <h4>Product: {name}</h4>
+                  <h4>Service: {name}</h4>
                   <p>Quantity: {cartQuantity}</p>
                   <p>Unit price: {price}</p>
                   <p>Set price: {price * cartQuantity}</p>

@@ -6,7 +6,7 @@ import { Home } from "./pages/Home";
 import { Signin } from "./pages/Auth/Signin";
 import  Signup  from "./pages/Auth/Signup";
 import Cart from "./pages/Cart";
-import History from "./pages/History";
+// import History from "./pages/History";
 import Reset from "./pages/Auth/Reset";
 
 import { ToastContainer } from 'react-toastify';
@@ -26,6 +26,7 @@ import OrderHistory from "./pages/order/OrderHistory";
 import OrderDetails from "./pages/order/OrderDetails";
 import AdminOrderDetails from "./pages/admin/AdminOrderDetails";
 import Dashboard from "./pages/admin/Dashboard";
+import Address from "./pages/Auth/Address";
 
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/address" element={<Address />} />
         <Route path="/cart" element={<Cart />} />
         {/* <Route path="/history" element={<History />} /> */}
         {/* <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>}> */}

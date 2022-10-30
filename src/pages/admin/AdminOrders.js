@@ -27,9 +27,8 @@ const AdminOrders = () => {
   
   return (
     <section>
-      <div className={`container ${'order'}`}>
-        <h2>Your Order History</h2>
-        <p>Open an order to leave a <b>Product Review</b></p>
+      <div className='order'>
+        <h2>All Orders</h2>
         <br/>
         <>
         {isLoading && <Loader/>}

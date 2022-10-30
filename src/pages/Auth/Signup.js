@@ -5,29 +5,62 @@ import { toast } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";
 
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './../../config/config'
+import { auth, db } from './../../config/config'
 
 import Loader from '../../component/Loader';
 import { useNavigate } from 'react-router-dom';
+import { addDoc, collection } from 'firebase/firestore';
+import { configureStore } from '@reduxjs/toolkit';
+
+const initailAddressState = {
+  name: "",
+  email: "",
+  line1: "",
+  line2: "",
+  city: "",
+  state: "",
+  postal_code: "",
+  phone: "",
+};
+
 
 const Signup = () => {
 
-    injectStyle();
+  injectStyle();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [cPassword, setCPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [cPassword, setCPassword] = useState('');
 
-    const [loading, setLoading] = useState(false);
+  // const [emailAdd, setEmailAdd] = useState('');
+  // const [name, setName] = useState('')
+  // const [] = useState('')
+  // const [] = useState('')
+  // const [] = useState('')
+  // const [] = useState('')
 
-    const navigate = useNavigate()
+  const [address, setAddress] = useState({ ...initailAddressState })
 
-    const registerUser = (e) => {
-        e.preventDefault();
+  const handleBilling = (e) => {
+    const { name, value } = e.target;
+    setAddress({
+      ...address, [name]: value,
+    })
+  }
+
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate()
+
+  const registerUser = (e) => {
+    e.preventDefault();
+    console.log(registerUser)
+
     if (password !== cPassword) {
       toast.error("Passwords do not match.");
     }
     setLoading(true);
+
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -35,33 +68,39 @@ const Signup = () => {
         console.log(user);
         setLoading(false);
         toast.success("Registration Successful...");
-        navigate("/login");
+        navigate("/address");
       })
+
       .catch((error) => {
         toast.error(error.message);
         setLoading(false);
       });
-    }
 
+  }
 
-    return (
-        <>
-        {loading && <Loader />}
-        <br></br>
-        <br></br>
-        <div className='form'>
-      
-            <h2>Register</h2>
-            <form onSubmit={registerUser}>
-                <input type={'text'} placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <input type={'password'} placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <input type={'password'} placeholder='Confirm Password' required value={cPassword} onChange={(e) => setCPassword(e.target.value)}/>
-                <button type='submit' className='--btn --btn-primary --btn-block'>Register</button>
-                
-            </form>
-        </div>
-        </>
-    );
+ 
+
+  return (
+    <>
+      {loading && <Loader />}
+      <br></br>
+      <br></br>
+      <div className='form'>
+
+        <h2>Register</h2>
+        <form onSubmit={(registerUser)}>
+          <input type={'text'} placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type={'password'} placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input type={'password'} placeholder='Confirm Password' required value={cPassword} onChange={(e) => setCPassword(e.target.value)} />
+          <button type='submit' className='btn btn-primary btn-block'>Register</button>
+        </form>
+      </div>
+
+     
+
+    </>
+  );
 }
+
 
 export default Signup

@@ -87,7 +87,7 @@ export const Signin = () => {
                         <Link to={'/reset'}>Reset Password</Link>
                     </div>
                     <br></br>
-                    <p>-- หรือ --</p>
+                    <p>-- or --</p>
                 </form>
                 <br></br>
                 <button className="--btn --btn-danger --btn-block" onClick={signInWithGoogle}>

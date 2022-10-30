@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
+import ChangeOrderStatus from './ChangeOrderStatus'
+
 
 const AdminOrderDetails = () => {
+
+  const [order, setOrder] = useState(null);
+  const { id } = useParams();
+
   return (
     <div>
-        <h2>Order Details</h2>
+        <ChangeOrderStatus order={order} id={id}/>
     </div>
   )
 }

@@ -58,7 +58,7 @@ const CheckoutForm = () => {
       orderDate: date,
       orderTime: time,
       orderAmount: cartTotalAmount,
-      orderStatus: "Order Placed...",
+      orderStatus: "Not yet process...",
       cartItems,
       billingAddress,
       createdAt: Timestamp.now().toDate(),
