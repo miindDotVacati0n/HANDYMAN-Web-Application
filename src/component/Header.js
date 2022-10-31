@@ -128,13 +128,13 @@ const Header = () => {
                 {/* ----------------------------------------- หน้า owner ------------------------------------------- */}
                 <OwnerLink>
 
-                    <Link to={'/allservices'} className='viewservices'>
+                    <Link to={'/owner-viewservice'} className='owner-services'>
                         <li>View Services</li>
                     </Link>
-                    <Link to={'/adminorders'} className='adminorders'>
-                        <li>Orders</li>
+                    <Link to={'/owner-vieworder'} className='owner-orders'>
+                        <li>View Orders</li>
                     </Link>
-                    <Link to={'/dashboard'} className='dashboard'>
+                    <Link to={'/owner-dashboard'} className='owner-dashboard'>
                         <li>Dashboard</li>
                     </Link>
                 </OwnerLink>

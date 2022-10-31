@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu:wght@300&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.header{
+.header {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -16,15 +16,15 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-.header .logo .home{
+.header .logo .home {
     font-size: 40px;
 }
 
-.logo{
+.logo {
     font-size: 30px;
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     justify-content: flex-end;
     list-style: none;
@@ -33,6 +33,9 @@
 
 .home,
 .dashboard,
+.owner-services,
+.owner-orders,
+.owner-dashboard,
 .about,
 .services,
 .adservs,
@@ -47,7 +50,7 @@
 .ownerhome,
 .allservices,
 .adminorders,
-.signup{
+.signup {
     text-decoration: none;
     color: white;
     font-size: 20px;
@@ -56,12 +59,12 @@
     cursor: pointer;
 }
 
-.signup{
+.signup {
     border: 1px solid yellowgreen;
     border-radius: 5px;
 }
 
-.signin{
+.signin {
     text-decoration: none;
     color: white;
     font-size: 20px;
@@ -70,28 +73,28 @@
     cursor: pointer;
 }
 
-.signin{
+.signin {
     border: 1px solid yellowgreen;
     border-radius: 5px;
 }
 
-.mobile-menu-icon{
+.mobile-menu-icon {
     display: none;
 }
 
 @media screen and(max-width: 780px) {
-    .Logo{
+    .Logo {
         display: flex;
         position: absolute;
         top: 15px;
         left: 35px;
     }
 
-    .nav-links{
+    .nav-links {
         display: none;
     }
 
-    .nav-links-mobile{
+    .nav-links-mobile {
         position: absolute;
         display: block;
         list-style: none;
@@ -104,6 +107,9 @@
 
     .home,
     .dashboard,
+    .owner-services,
+    .owner-orders,
+    .owner-dashboard,
     .about,
     .services,
     .adservs,
@@ -118,7 +124,7 @@
     .adminorders,
     .allservices,
     .ownerhome,
-    .signup{
+    .signup {
         color: white;
         text-align: center;
         padding: 32px;
@@ -126,11 +132,11 @@
         transition: all 0.5s ease;
     }
 
-    .signup{
+    .signup {
         border: none;
     }
 
-    .signin{
+    .signin {
         color: white;
         text-align: center;
         padding: 32px;
@@ -138,11 +144,11 @@
         transition: all 0.5s ease;
     }
 
-    .signin{
+    .signin {
         border: none;
     }
 
-    .mobile-menu-icon{
+    .mobile-menu-icon {
         display: block;
         position: absolute;
         font-size: 30px;
@@ -160,12 +166,15 @@
     color: #fff;
     position: relative;
 }
+
 .cart a:hover {
     color: orangered;
 }
+
 .cart a.active {
     color: var(--color-danger);
 }
+
 .cart a p {
     position: absolute;
     top: -1rem;
@@ -173,8 +182,8 @@
     font-weight: 500;
 }
 
-.btn{
-    background-color: #4CAF50; 
+.btn {
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;

@@ -13,7 +13,6 @@ import { ToastContainer } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";
 // import AdminRoute from "./component/AdminRoute";
 import AdminHome from "./pages/admin/AdminHome";
-import OwnerHome from "./pages/owner/OwnerHome";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AddServices from "./pages/admin/AddServices";
 import ViewServices from "./pages/admin/ViewServices";
@@ -27,6 +26,9 @@ import OrderDetails from "./pages/order/OrderDetails";
 import AdminOrderDetails from "./pages/admin/AdminOrderDetails";
 import Dashboard from "./pages/admin/Dashboard";
 import Address from "./pages/Auth/Address";
+import ViewDashBoard from "./pages/owner/ViewDashBoard";
+import ViewService from "./pages/owner/ViewService";
+import ViewOrders from "./pages/owner/ViewOrders";
 
 
 const App = () => {
@@ -65,7 +67,9 @@ const App = () => {
         <Route path="/admin/order-details/:id" element={<AdminOrderDetails/>} />
         <Route path="/dashboard" element={<Dashboard />} />
 
-        <Route path="/ownerhome" element={<OwnerHome />} />
+        <Route path="/owner-dashboard" element={<ViewDashBoard />} />
+        <Route path="/owner-viewservice" element={<ViewService />} />
+        <Route path="/owner-vieworder" element={<ViewOrders />} />
 
         <Route path="/service-details/:id" element={<ServiceDetails />} />
 
