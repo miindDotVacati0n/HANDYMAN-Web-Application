@@ -63,7 +63,7 @@ const Cart = () => {
             <p>Your cart is currently empty</p>
             <br />
             <div>
-              <Link to={'/services'}>&larr; Continue Shopping</Link>
+              <Link to={'/'}>&larr; Continue Shopping</Link>
             </div>
           </>
         ) : (

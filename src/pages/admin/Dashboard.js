@@ -38,12 +38,12 @@ const Dashboard = () => {
       <div className={'home'}>
         <h2>Admin Home</h2>
         <div className={"info-box"}>
-          <InfoBox
+          {/* <InfoBox
             cardClass={`${'card'} ${'card1'}`}
             title={"Earnings"}
             count={`${totalOrderAmount}THB`}
             icon={earningIcon}
-          />
+          /> */}
           <InfoBox
             cardClass={`${'card'} ${'card2'}`}
             title={"Services"}

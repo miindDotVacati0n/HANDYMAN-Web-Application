@@ -1,4 +1,4 @@
-import { doc, setDoc, Timestamp } from 'firebase/firestore';
+import { addDoc, collection, doc, setDoc, Timestamp } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -12,37 +12,62 @@ import { selectBillingAddress } from '../../redux/slice/checkoutSlice';
 import '../../styles/Admin/ChangeOrderStatus.css'
 
 
-const ChangeOrderStatus = ({order, id}) => {
+const ChangeOrderStatus = ({ order, id }) => {
 
+  // const userID = useSelector(selectUserID)
+  // const userEmail = useSelector(selectEmail)
+  // const cartItems = useSelector(selectCartItems)
+  // const billingAddress = useSelector(selectBillingAddress)
+  // const cartTotalAmount = useSelector(selectCartTotalAmount)
+
+  const [status, setStatus] = useState("");
+  const [amount, setAmount] = useState("")
+  // const [id, setId] = useState('')
+  const [iden, setIden] = useState('')
+  // const [date, setDate] = useState('')
+  // const [time, setTime] = useState('')
+  // const [] = useState('')
+  // const [] = useState('')
   const userID = useSelector(selectUserID)
   const userEmail = useSelector(selectEmail)
   const cartItems = useSelector(selectCartItems)
-  const billingAddress = useSelector(selectBillingAddress)
   const cartTotalAmount = useSelector(selectCartTotalAmount)
 
-  const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const editOrder = (e, id) => {
     e.preventDefault();
     setIsLoading(true);
+    const today = new Date();
+    const date = today.toDateString();
+    const time = today.toLocaleTimeString();
 
     const orderConfig = {
-      userID: order.userID,
-      userEmail: order.userEmail,
-      orderDate: order.orderDate,
-      orderTime: order.orderTime,
-      orderAmount: order.orderAmount,
+      // userID: order.userID,
+      // userEmail: order.userEmail,
+      // orderDate: order.orderDate,
+      // orderTime: order.orderTime,
+      // orderAmount: order.orderAmount,
+      // orderStatus: status,
+      // cartItems: order.cartItems,
+      // createdAt: order.createdAt,
+      // editedAt: Timestamp.now().toDate(),
+      userID: iden,
+      userEmail,
+      orderDate: date,
+      orderTime: time,
+      orderAmount: amount,
       orderStatus: status,
-      cartItems: order.cartItems,
-      billingAddress: order.billingAddress,
-      createdAt: order.createdAt,
+      cartItems,
+      createdAt: Timestamp.now().toDate(),
       editedAt: Timestamp.now().toDate(),
     };
 
     try {
-      setDoc(doc(db, "orders", id), orderConfig);
+      setDoc(doc(db, "orders", id), orderConfig)
+      // setDoc(doc(db, "orderStatus", id), orderConfig);
+
 
       setIsLoading(false);
       toast.success("Order status changes successfully");
@@ -52,6 +77,13 @@ const ChangeOrderStatus = ({order, id}) => {
       toast.error(error.message);
     }
   };
+
+  // const handlePrice = (e) => {
+  //   const { name, value } = e.target;
+  //   setCartAmount({
+  //     ...cartAmount, [name]: value,
+  //   })
+  // }
 
   return (
     <>
@@ -66,6 +98,7 @@ const ChangeOrderStatus = ({order, id}) => {
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
               >
+
                 <option value="" disabled>
                   -- Choose one --
                 </option>
@@ -73,7 +106,16 @@ const ChangeOrderStatus = ({order, id}) => {
                 <option value="Processing...">In Processing...</option>
                 <option value="Successed">Successed</option>
               </select>
+
             </span>
+            <label>please fill order price</label>
+            <br />
+            <input type={'number'} placeholder='please fill order price' required name='orderAmount' value={amount} onChange={(e) => setAmount(e.target.value)} />
+            <br /><br />
+            <label>please fill order </label>
+            <br />
+            <input type={'text'} placeholder='please fill emailID' required name='userID' value={iden} onChange={(e) => setIden(e.target.value)} />
+            <br /><br />
             <span>
               <button type="submit" className="btn btn-primary">
                 Update Status

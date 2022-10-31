@@ -90,7 +90,7 @@ const Header = () => {
     {/* <nav className='header'></nav> */ }
     return (
         <nav className='header'>
-            <h3 className='logo'><Link to={'/'} className='home'>HANDYMAN</Link>
+            <h3 className='logo'><Link to={'/services'} className='home'>HANDYMAN</Link>
                 {/* <Link to={'/'} className='home'>logo</Link> */}
             </h3>
             {/* <Link to={'/services'} className='services'>
@@ -100,63 +100,34 @@ const Header = () => {
                 onClick={() => setIsMobile(false)}
             >
 
-                <AdminDoNotShow>
+                {/* <AdminDoNotShow>
                     <OwnerDoNotShow>
-                        {/* <Link to={'/'} className='home'>
-                            <li>Home</li>
-                        </Link> */}
-                        {/* <Link to={'/about'} className='about'>
-                <li>About</li>
-            </Link> */}
-                        {/* services อันนี้จะเป็นหน้าที่ user เห็น */}
-                        {/* <Link to={'/services'} className='services'>
-                <li>Services</li>
-            </Link> */}
-
                     </OwnerDoNotShow>
+                    <Link to={'/services'} className='services'>
+                        <li>Services</li>
+                    </Link>
+                    
 
-                </AdminDoNotShow>
+                </AdminDoNotShow> */}
                 {/* ใช้เสร็จแล้วลบทิ้ง แล้วไปใช้ด้านใน protected route */}
-                <Link to={'/services'} className='services'>
-                    <li>Services</li>
-                </Link>
-
+                {/* ----------------------------------------- หน้า admin ------------------------------------------- */}
                 <AdminLink>
-                    {/* <Link to={'/admin'} className='admin'>
-                    <li>Admin</li>
-                </Link> */}
-                    {/* <Link to={'/admin/home'}>
-                    <button className='btn'>
-                        Admin
-                    </button>
-                </Link> */}
-                    {/* <Link to={'/adminhome'} className='adminhome'>
-                    <li>Home</li>
-                </Link> */}
-
                     <Link to={'/addservices/ADD'} className='addservices'>
                         <li>Add Services</li>
                     </Link>
-                    {/* <Link to={'/allservices'} className='allservices'>
-                    <li>All Services</li>
-                </Link> */}
                     <Link to={'/allservices'} className='viewservices'>
                         <li>View Services</li>
                     </Link>
-                    {/* <Link to={'/adminhome'} className='adminhome'>
-                    <li>Home</li>
-                </Link> */}
                     <Link to={'/adminorders'} className='adminorders'>
                         <li>Orders</li>
                     </Link>
                     <Link to={'/dashboard'} className='dashboard'>
                         <li>Dashboard</li>
                     </Link>
-
                 </AdminLink>
-
+                {/* ----------------------------------------- หน้า owner ------------------------------------------- */}
                 <OwnerLink>
-                    
+
                     <Link to={'/allservices'} className='viewservices'>
                         <li>View Services</li>
                     </Link>
@@ -168,45 +139,26 @@ const Header = () => {
                     </Link>
                 </OwnerLink>
 
-                {/* <OwnerRoute>
-            <Link to={'/ownerhome'} className='ownerhome'>
-                    <li>Home</li>
-                </Link>
-            </OwnerRoute> */}
+                <AdminDoNotShow>
+                    <OwnerDoNotShow>
+                        <span className='cart'>
+                            <Link to={'/cart'}>
+
+                                <FaCartArrowDown size={20} />
+                                <p>{cartTotalQuantity}</p>
+                            </Link>
+                        </span>
+
+                        <ShowOnLogin>
+                            <Link to={'/order-history'} className='history'>
+                                <li>My Orders</li>
+                            </Link>
+                        </ShowOnLogin>
+                    </OwnerDoNotShow>
+                </AdminDoNotShow>
 
 
 
-
-                {/* <div className='navbar-right'>
-            <Link to={'/cart'} className='cart'>
-                <li>Cart
-                <FaCartArrowDown size={20}/>
-                <p>0</p>
-                </li>
-            </Link>
-            <Link to={'/history'} className='history'>
-                <li>My Orders</li>
-            </Link>
-            <Link to={'/signin'} className='signin'>
-                <li>Sign In</li>
-            </Link>
-            <Link to={'/signup'} className='signup'>
-                <li>Sign Up</li>
-            </Link>
-            </div> */}
-
-                <span className='cart'>
-                    <Link to={'/cart'}>
-
-                        <FaCartArrowDown size={20} />
-                        <p>{cartTotalQuantity}</p>
-                    </Link>
-                </span>
-                <ShowOnLogin>
-                    <Link to={'/order-history'} className='history'>
-                        <li>My Orders</li>
-                    </Link>
-                </ShowOnLogin>
                 <ShowOnLogin>
                     <a href='#home' style={{ color: '#ff7722' }}>
                         <FaUserCircle size={16} />
@@ -218,16 +170,15 @@ const Header = () => {
                         <li>Logout</li>
                     </Link>
                 </ShowOnLogin>
+
+
+
                 <ShowOnLogout>
                     <Link to={'/signin'} className='signin'>
                         <li>Sign In</li>
                     </Link>
                 </ShowOnLogout>
 
-
-                {/* <Link to={'/signup'} className='signup'>
-                <li>Sign Up</li>
-            </Link> */}
             </ul>
             <button className='mobile-menu-icon'
                 onClick={() => setIsMobile(!isMobile)}

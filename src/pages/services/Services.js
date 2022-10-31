@@ -28,7 +28,7 @@ const Services = () => {
 
   return (
     <section>
-      <div className={`container ${'service'}`}>
+      <div className={'service'}>
         
         <div className='content'>
           <ServiceList services={services}/>

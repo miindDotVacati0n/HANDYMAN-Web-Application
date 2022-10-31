@@ -52,7 +52,8 @@ const OrderHistory = () => {
                 {filteredOrders.map((order, index) => {
                   const {id, orderDate, orderTime, orderAmount, orderStatus} = order
                   return(
-                    <tr key={id} onClick={() => handleClick(id)}>
+                    // <tr key={id} onClick={() => handleClick(id)}>
+                    <tr key={id}>
                       <td>{index + 1}</td>
                       <td>{orderDate} at {orderTime}</td>
                       <td>{id}</td>

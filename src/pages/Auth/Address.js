@@ -37,7 +37,7 @@ const Address = () => {
 
     const registerAddress = (e) => {
         try {
-            const docRef = addDoc(collection(db, "users"), {
+            const docRef = addDoc(collection(db, "address"), {
                 name: address.name,
                 email: address.email,
                 line1: address.line1,
@@ -49,7 +49,7 @@ const Address = () => {
             });
             toast.success("Registration Successful...")
 
-            navigate("/login");
+            navigate("/");
         } catch (error) {
             toast.error(error.message)
 

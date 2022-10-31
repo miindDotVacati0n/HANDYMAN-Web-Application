@@ -30,7 +30,6 @@ const CheckoutForm = () => {
   const userID = useSelector(selectUserID)
   const userEmail = useSelector(selectEmail)
   const cartItems = useSelector(selectCartItems)
-  const billingAddress = useSelector(selectBillingAddress)
   const cartTotalAmount = useSelector(selectCartTotalAmount)
 
   useEffect(() => {
@@ -60,12 +59,12 @@ const CheckoutForm = () => {
       orderAmount: cartTotalAmount,
       orderStatus: "Not yet process...",
       cartItems,
-      billingAddress,
       createdAt: Timestamp.now().toDate(),
     };
 
     try {
       addDoc(collection(db, "orders"), orderConfig);
+      addDoc(collection(db, "ordersLog"), orderConfig)
 
       dispatch(CLEAR_CART())
 

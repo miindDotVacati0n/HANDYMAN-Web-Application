@@ -92,7 +92,7 @@ const Signup = () => {
           <input type={'text'} placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)} />
           <input type={'password'} placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)} />
           <input type={'password'} placeholder='Confirm Password' required value={cPassword} onChange={(e) => setCPassword(e.target.value)} />
-          <button type='submit' className='btn btn-primary btn-block'>Register</button>
+          <button type='submit' className='btn btn-primary btn-block'>Next</button>
         </form>
       </div>
 

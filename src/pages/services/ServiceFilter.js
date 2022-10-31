@@ -24,10 +24,10 @@ const ServiceFilter = () => {
     ];
     console.log(allCategories)
 
-    const clearFilters = () => {
-        setCategory("ทั้งหมด")
-        console.log("true")
-    }
+    // const clearFilters = () => {
+    //     setCategory("ทั้งหมด")
+    //     console.log("true")
+    // }
 
     return (
         <div className='filter'>
@@ -39,7 +39,7 @@ const ServiceFilter = () => {
                         <button
                             key={index}
                             type="button"
-                            className={`${category}` === cat ? `${"active"}` : null}
+                            // className={`${category}` === cat ? `${"active"}` : null}
                             onClick={() => filterServices(cat)}
                         >
                             {cat}
