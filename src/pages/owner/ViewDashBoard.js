@@ -21,6 +21,8 @@ const ViewDashBoard = () => {
 
     const services = useSelector(selectServices);
     const orders = useSelector(selectOrderHistory);
+    const totalOrderAmount = useSelector(selectTotalOrderAmount);
+
   
     const fbServices = useFetchCollection("services");
     const { data } = useFetchCollection("orders");
@@ -41,12 +43,12 @@ const ViewDashBoard = () => {
     return (
       <div className={'home'}>
         <div className={"info-box"}>
-          {/* <InfoBox
+          <InfoBox
             cardClass={`${'card'} ${'card1'}`}
             title={"Earnings"}
-            count={`${totalOrderAmount}THB`}
+            count={`${totalOrderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB`}
             icon={earningIcon}
-          /> */}
+          />
           <InfoBox
             cardClass={`${'card'} ${'card2'}`}
             title={"Services"}

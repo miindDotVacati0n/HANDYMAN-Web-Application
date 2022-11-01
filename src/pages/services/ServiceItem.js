@@ -32,7 +32,7 @@ const ServiceItem = ({service, grid, id, name, price, desc, imageURL}) => {
       </Link>
       <div className='content'>
         <div className='details'>
-          <p>{`${price}THB`}</p>
+          <p>{`${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB`}</p>
           <h4>{shortenText(name, 18)}</h4>
         </div>
         {!grid && <p className='desc'>{shortenText(desc, 200)}</p>}

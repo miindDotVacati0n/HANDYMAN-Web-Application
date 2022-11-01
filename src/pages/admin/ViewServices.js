@@ -146,7 +146,7 @@ const ViewServices = () => {
                   {category}
                 </td>
                 <td>
-                  {`${price}THB`}
+                  {`${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB`}
                 </td>
                 <td>
                   <Link to={`/addservices/${id}`}>

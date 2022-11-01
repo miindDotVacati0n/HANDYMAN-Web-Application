@@ -54,7 +54,7 @@ const ViewOrders = () => {
                         <td>{index + 1}</td>
                         <td>{orderDate} at {orderTime}</td>
                         <td>{id}</td>
-                        <td className='histd-right'>{orderAmount}{"THB"}</td>
+                        <td className='histd-right'>{orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{"THB"}</td>
                         <td className='histd-right'>
                           <p className={orderStatus !== "Successed" ? `${'pending'}` : `${'successed'}`}>
                             {orderStatus}

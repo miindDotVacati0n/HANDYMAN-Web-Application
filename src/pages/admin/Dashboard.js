@@ -40,7 +40,7 @@ const Dashboard = () => {
           {/* <InfoBox
             cardClass={`${'card'} ${'card1'}`}
             title={"Earnings"}
-            count={`${totalOrderAmount}THB`}
+            count={`${totalOrderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB`}
             icon={earningIcon}
           /> */}
           <InfoBox

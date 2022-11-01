@@ -57,7 +57,7 @@ const ChangeOrderStatus = ({ order, id }) => {
       userEmail,
       orderDate: date,
       orderTime: time,
-      orderAmount: amount,
+      orderAmount: Number(amount),
       orderStatus: status,
       cartItems,
       createdAt: Timestamp.now().toDate(),
@@ -114,7 +114,7 @@ const ChangeOrderStatus = ({ order, id }) => {
             <br /><br />
             <label>please fill order </label>
             <br />
-            <input type={'text'} placeholder='please fill emailID' required name='userID' value={iden} onChange={(e) => setIden(e.target.value)} />
+            <input type={'text'} placeholder='please fill userID' required name='userID' value={iden} onChange={(e) => setIden(e.target.value)} />
             <br /><br />
             <span>
               <button type="submit" className="btn btn-primary">
