@@ -172,7 +172,7 @@
 }
 
 .cart a.active {
-    color: var(--color-danger);
+    color: red;
 }
 
 .cart a p {

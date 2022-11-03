@@ -5,6 +5,7 @@ import useFetchDocument from '../../component/customHooks/useFetchDocument'
 import Loader from '../../component/Loader'
 import addressSlice from '../../redux/slice/addressSlice'
 import ChangeOrderStatus from './ChangeOrderStatus'
+import './../../styles/Admin/AdminOrderDetails.css'
 
 const AdminOrderDetails = () => {
 
@@ -29,22 +30,22 @@ const AdminOrderDetails = () => {
         ) : (
           <>
             <p>
-              <b>User Email: </b> {order.userEmail}
+              <b>User Email: </b> &nbsp;{order.userEmail}
             </p>
             <p>
-              <b>Order ID: </b> {order.id}
+              <b>Order ID: </b> &nbsp;{order.id}
             </p>
             <p>
-              <b>Order Amount: </b> {order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB
+              <b>Order Amount: </b> &nbsp;{order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB
             </p>
             <p>
-              <b>Appointed Time</b> {order.serviceDate}
+              <b>Appointed Date: </b> &nbsp;{order.serviceDate}
             </p>
             <p>
-              <b>Order Status: </b> {order.orderStatus}
+              <b>Order Status: </b> &nbsp;{order.orderStatus}
             </p>
             <p>
-              <b>Address</b>
+              <b>Address:</b>
               <br />
               Address: {order.userAddress.line1},
               {order.userAddress.line2}, {order.userAddress.city}

@@ -5,7 +5,7 @@
 }
 .status .card {
     padding: 1rem;
-    border: 2px solid cornflowerblue;
+    border: 2px solid lightblue;
 }
 .status form select {
     display: inline-block;

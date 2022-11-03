@@ -59,7 +59,7 @@ const CheckoutDetails = () => {
             </div>
             <br/>
             <div className='date'>
-              <h1>Selected Date: {selectedDate}</h1>
+              <h1>Selected appointment date: {selectedDate}</h1>
               <input type={'date'} onChange={(e) => setSelectedDate(e.target.value)} required min={today}/>
 
 

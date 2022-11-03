@@ -128,7 +128,7 @@ const Cart = () => {
                   <div className='text'>
 
                     <h4>Subtotal: </h4>
-                    <h3>{`${cartTotalAmount.toFixed(2)}THB`}</h3>
+                    <h3>&nbsp;{`${cartTotalAmount.toFixed(2)}THB`}</h3>
                   </div>
                   <br />
                   <button class='btn btn-primary btn-block' onClick={checkout}>Checkout</button>

@@ -19,7 +19,7 @@ const OrderDetails = () => {
     <div className='table'>
       <h2>Order Details</h2>
       <div>
-        <Link to = '/order-history'>&larr; Back to Orders</Link>
+        <Link to = '/order-history' className='order-history'>&larr; Back to Orders</Link>
       </div>
       <br/>
       {order === null ? (
@@ -27,16 +27,16 @@ const OrderDetails = () => {
         ) : (
           <>
             <p>
-              <b>Order ID</b> {order.id}
+              <b>Order ID:</b> &nbsp;{order.id}
             </p>
             <p>
-              <b>Order Amount</b> {order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB
+              <b>Order Amount:</b> &nbsp;{order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB
             </p>
             <p>
-              <b>Appointed Time</b> {order.serviceDate}
+              <b>Appointed Date:</b> &nbsp;{order.serviceDate}
             </p>
             <p>
-              <b>Order Status</b> {order.orderStatus}
+              <b>Order Status:</b> &nbsp;{order.orderStatus}
             </p>
             <br />
             <table>

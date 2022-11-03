@@ -92,7 +92,6 @@ const ServiceDetails = () => {
         )}
 
       </div>
-      <br />
       <button className='btn btn-success' onClick={() => addToCart(service)}>ADD TO CART</button>
 
     </div>

@@ -9,8 +9,8 @@
     font-size: 1.4rem;
 }
 .table table thead {
-    border-top: 2px solid cornflowerblue;
-    border-bottom: 2px solid cornflowerblue;
+    border-top: 2px solid lightblue;
+    border-bottom: 2px solid lightblue;
 }
 .table table th {
     border: 1px solid #eee;
@@ -47,9 +47,6 @@
     justify-content: space-between;
     align-items: center;
 }
-/* .table .summary .card .text h3 {
-    color: var(--color-danger);
-} */
 .table .summary .card button {
     margin-top: 5px;
 }
@@ -60,3 +57,14 @@
 .count button {
     border: 1px solid #00008B;
 }
+b{
+    font-size: large;
+}
+/* 
+.order-history{
+        color: white;
+        text-align: center;
+        padding: 32px;
+        width: 100%;
+        transition: all 0.5s ease;
+} */

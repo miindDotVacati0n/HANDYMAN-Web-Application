@@ -28,9 +28,9 @@
     margin-left: 1rem;
 }
 .pagination p .page {
-    color: var(--color-danger);
+    color: red;
 }
 .active {
-    background-color: var(--color-danger);
+    background-color: red;
     color: #fff;
 }

@@ -33,16 +33,6 @@
     border: none;
     outline: none;
 }
-/* @media screen and (max-width: 800px) {
-    .service-list .top {
-        flex-direction: column;
-        align-items: start;
-        padding-bottom: 5px;
-   }
-    .service-list .search {
-        width: 100%;
-   }
-} */
 .grid {
     display: flex;
     justify-content: space-around;

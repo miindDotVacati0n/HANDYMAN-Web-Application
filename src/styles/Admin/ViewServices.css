@@ -25,8 +25,8 @@ p.text{
     font-size: 1.4rem;
 }
 .table table thead {
-    border-top: 2px solid var(--light-blue);
-    border-bottom: 2px solid var(--light-blue);
+    border-top: 2px solid lightblue;
+    border-bottom: 2px solid lightblue;
 }
 .table table th {
     border: 1px solid #eee;
