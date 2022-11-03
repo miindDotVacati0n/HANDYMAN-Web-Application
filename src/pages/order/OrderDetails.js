@@ -30,7 +30,7 @@ const OrderDetails = () => {
               <b>Order ID</b> {order.id}
             </p>
             <p>
-              <b>Order Amount</b> ${order.orderAmount}
+              <b>Order Amount</b> {order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB
             </p>
             <p>
               <b>Order Status</b> {order.orderStatus}
@@ -40,7 +40,7 @@ const OrderDetails = () => {
               <thead>
                 <tr>
                   <th>s/n</th>
-                  <th>Product</th>
+                  <th>Service</th>
                   <th>Price</th>
                   <th>Quantity</th>
                   <th>Total</th>
@@ -64,7 +64,7 @@ const OrderDetails = () => {
                           style={{ width: "100px" }}
                         />
                       </td>
-                      <td>{price}</td>
+                      <td>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
                       <td>{cartQuantity}</td>
                       <td>{(price * cartQuantity).toFixed(2)}</td>
                       

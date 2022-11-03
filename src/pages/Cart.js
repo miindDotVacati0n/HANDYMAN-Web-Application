@@ -92,7 +92,7 @@ const Cart = () => {
                         </p>
                         <img src={imageURL} alt={name} style={{ width: '100px' }} />
                       </td>
-                      <td className='td-right'>{price}</td>
+                      <td className='td-right'>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
                       <td>
                         <div className='count'>
                           <button className='--btn' style={{ width: "20px", height: "20px" }} onClick={() => decreaseCart(cart)}> - </button>

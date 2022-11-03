@@ -46,14 +46,14 @@ const ServiceList = ({services}) => {
       <h2 className="textheader">Service List.</h2>
       <ServiceFilter/>
       <div className='top'>
-        <div className='icons'>
+        {/* <div className='icons'>
           <BsFillGridFill size={21} color='orangered' onClick={() => setGrid(true)} />
-          {/* <FaList size={24} color='#00828c' onClick={() => setGrid(false)} /> */}
+          <FaList size={24} color='#00828c' onClick={() => setGrid(false)} />
 
           <p>
             <b>10</b> Services found.
           </p>
-        </div>
+        </div> */}
         {/* Search Icon */}
         <div>
           <Search value={search} onChange={(e) => setSearch(e.target.value)} />

@@ -44,7 +44,7 @@
     /* text-align: center; */
 }
 .service form .progress .progress-bar {
-    background-color: var(--light-blue);
+    background-color: cornflowerblue;
     border: 1px solid transparent;
     border-radius: 10px;
     color: #fff;
@@ -53,6 +53,6 @@
     padding: 0 1rem;
 }
 .group {
-    border: 1px solid var(--dark-blue);
+    border: 1px solid #020B4A;
     padding: 5px;
 }

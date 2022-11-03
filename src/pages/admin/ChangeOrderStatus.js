@@ -1,15 +1,16 @@
 import { addDoc, collection, doc, setDoc, Timestamp } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Card from '../../component/Card';
 import Loader from '../../component/Loader';
 import { db } from '../../config/config';
 import { selectEmail, selectUserID } from '../../redux/slice/authSlice';
-import { selectCartItems, selectCartTotalAmount } from '../../redux/slice/cartSlice';
+import { selectCartItems, selectCartTotalAmount, selectCartTotalQuantity } from '../../redux/slice/cartSlice';
 import { selectBillingAddress } from '../../redux/slice/checkoutSlice';
 import '../../styles/Admin/ChangeOrderStatus.css'
+
 
 
 const ChangeOrderStatus = ({ order, id }) => {
@@ -19,6 +20,11 @@ const ChangeOrderStatus = ({ order, id }) => {
   // const cartItems = useSelector(selectCartItems)
   // const billingAddress = useSelector(selectBillingAddress)
   // const cartTotalAmount = useSelector(selectCartTotalAmount)
+
+  const cartItems = useSelector(selectCartItems);
+  const cartTotalAmount = useSelector(selectCartTotalAmount);
+  const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+  
 
   const [status, setStatus] = useState("");
   const [amount, setAmount] = useState("")
@@ -30,8 +36,8 @@ const ChangeOrderStatus = ({ order, id }) => {
   // const [] = useState('')
   const userID = useSelector(selectUserID)
   const userEmail = useSelector(selectEmail)
-  const cartItems = useSelector(selectCartItems)
-  const cartTotalAmount = useSelector(selectCartTotalAmount)
+  // const cartItems = useSelector(selectCartItems)
+  // const cartTotalAmount = useSelector(selectCartTotalAmount)
 
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -43,24 +49,17 @@ const ChangeOrderStatus = ({ order, id }) => {
     const date = today.toDateString();
     const time = today.toLocaleTimeString();
 
+  
+
     const orderConfig = {
-      // userID: order.userID,
-      // userEmail: order.userEmail,
-      // orderDate: order.orderDate,
-      // orderTime: order.orderTime,
-      // orderAmount: order.orderAmount,
-      // orderStatus: status,
-      // cartItems: order.cartItems,
-      // createdAt: order.createdAt,
-      // editedAt: Timestamp.now().toDate(),
-      userID: iden,
-      userEmail,
-      orderDate: date,
-      orderTime: time,
-      orderAmount: Number(amount),
+      userID: order.userID,
+      userEmail: order.userEmail,
+      orderDate: order.orderDate,
+      orderTime: order.orderTime,
+      orderAmount: order.orderAmount,
       orderStatus: status,
-      cartItems,
-      createdAt: Timestamp.now().toDate(),
+      cartItems: order.cartItems,
+      createdAt: order.createdAt,
       editedAt: Timestamp.now().toDate(),
     };
 
@@ -78,16 +77,10 @@ const ChangeOrderStatus = ({ order, id }) => {
     }
   };
 
-  // const handlePrice = (e) => {
-  //   const { name, value } = e.target;
-  //   setCartAmount({
-  //     ...cartAmount, [name]: value,
-  //   })
-  // }
-
   return (
     <>
       {isLoading && <Loader />}
+      
 
       <div className={'status'}>
         <Card cardClass={'card'}>
@@ -106,21 +99,11 @@ const ChangeOrderStatus = ({ order, id }) => {
                 <option value="Processing...">In Processing...</option>
                 <option value="Successed">Successed</option>
               </select>
-
-            </span>
-            <label>please fill order price</label>
-            <br />
-            <input type={'number'} placeholder='please fill order price' required name='orderAmount' value={amount} onChange={(e) => setAmount(e.target.value)} />
-            <br /><br />
-            <label>please fill order </label>
-            <br />
-            <input type={'text'} placeholder='please fill userID' required name='userID' value={iden} onChange={(e) => setIden(e.target.value)} />
-            <br /><br />
-            <span>
               <button type="submit" className="btn btn-primary">
                 Update Status
               </button>
             </span>
+            
           </form>
         </Card>
       </div>

@@ -18,7 +18,7 @@ const AdminOrders = () => {
   // const filteredOrders = orders.filter((order) => order.userID === userID)
 
   const handleClick = (id) => {
-    navigate(`/admin/order-details/${id}`)
+    navigate(`/adminorder-details/${id}`)
   }
 
   useEffect(() => {

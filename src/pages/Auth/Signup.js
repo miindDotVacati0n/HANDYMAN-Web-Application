@@ -12,16 +12,16 @@ import { useNavigate } from 'react-router-dom';
 import { addDoc, collection } from 'firebase/firestore';
 import { configureStore } from '@reduxjs/toolkit';
 
-const initailAddressState = {
-  name: "",
-  email: "",
-  line1: "",
-  line2: "",
-  city: "",
-  state: "",
-  postal_code: "",
-  phone: "",
-};
+// const initailAddressState = {
+//   name: "",
+//   email: "",
+//   line1: "",
+//   line2: "",
+//   city: "",
+//   state: "",
+//   postal_code: "",
+//   phone: "",
+// };
 
 
 const Signup = () => {
@@ -39,14 +39,14 @@ const Signup = () => {
   // const [] = useState('')
   // const [] = useState('')
 
-  const [address, setAddress] = useState({ ...initailAddressState })
+  // const [address, setAddress] = useState({ ...initailAddressState })
 
-  const handleBilling = (e) => {
-    const { name, value } = e.target;
-    setAddress({
-      ...address, [name]: value,
-    })
-  }
+  // const handleBilling = (e) => {
+  //   const { name, value } = e.target;
+  //   setAddress({
+  //     ...address, [name]: value,
+  //   })
+  // }
 
   const [loading, setLoading] = useState(false);
 
@@ -67,7 +67,7 @@ const Signup = () => {
         const user = userCredential.user;
         console.log(user);
         setLoading(false);
-        toast.success("Registration Successful...");
+        // toast.success("Registration Successful...");
         navigate("/address");
       })
 

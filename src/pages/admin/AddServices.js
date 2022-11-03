@@ -20,7 +20,7 @@ const initialState = {
 }
 
 const categories = [
-  { id: 1, name: "ปะปา" },
+  { id: 1, name: "ประปา" },
   { id: 2, name: "ไฟฟ้า" },
   { id: 3, name: "ตรวจสอบ" }
 
@@ -194,7 +194,7 @@ const AddServices = () => {
             <label>Service Description:</label>
             <textarea name='desc' value={service.desc} onChange={(e) => handleInputChange(e)} cols={'30'} rows={'10'}></textarea>
 
-            <button className='--btn --btn-primary'>{detectForm(id, "Save Service", "Edit Service")}</button>
+            <button className='btn btn-primary'>{detectForm(id, "Save Service", "Edit Service")}</button>
 
           </form>
         </div>
