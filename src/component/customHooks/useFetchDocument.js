@@ -5,6 +5,7 @@ import { db } from "../../config/config";
 
 const useFetchDocument = (collectionName, documentID) => {
   const [document, setDocument] = useState(null);
+  // const [documentTwo, setDocumentTwo] = useState(null)
 
   const getDocument = async () => {
     const docRef = doc(db, collectionName, documentID);
@@ -17,6 +18,7 @@ const useFetchDocument = (collectionName, documentID) => {
         ...docSnap.data(),
       };
       setDocument(obj);
+      // setDocumentTwo(obj);
     } else {
       toast.error("Document not found");
     }
@@ -26,7 +28,9 @@ const useFetchDocument = (collectionName, documentID) => {
     getDocument();
   }, []);
 
-  return { document };
+  return { document, 
+    // documentTwo 
+  };
 };
 
 export default useFetchDocument;

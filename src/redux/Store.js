@@ -6,6 +6,7 @@ import cartReducer from './slice/cartSlice';
 import checkoutReducer from './slice/checkoutSlice';
 import orderReducer from './slice/orderSlice';
 import addressReducer from './slice/addressSlice';
+import dateReducer from './slice/dateSlice';
 
 
 
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     checkout: checkoutReducer,
     orders: orderReducer,
     address: addressReducer,
+    date: dateReducer,
 });
 
 const store = configureStore({

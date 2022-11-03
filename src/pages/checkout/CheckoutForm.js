@@ -17,6 +17,7 @@ import { CLEAR_CART, selectCartItems, selectCartTotalAmount } from "../../redux/
 import { useNavigate } from "react-router-dom";
 import { selectBillingAddress } from "../../redux/slice/checkoutSlice";
 import { selectAddress } from "../../redux/slice/addressSlice";
+import { selectDate } from "../../redux/slice/dateSlice";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -33,6 +34,7 @@ const CheckoutForm = () => {
   const cartItems = useSelector(selectCartItems)
   const cartTotalAmount = useSelector(selectCartTotalAmount)
   const userAddress = useSelector(selectAddress)
+  const serviceDate = useSelector(selectDate)
 
 
   useEffect(() => {
@@ -63,6 +65,7 @@ const CheckoutForm = () => {
       orderStatus: "Not yet process...",
       cartItems,
       userAddress,
+      serviceDate,
       createdAt: Timestamp.now().toDate(),
     };
 

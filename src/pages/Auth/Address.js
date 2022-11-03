@@ -69,7 +69,7 @@ const Address = () => {
     return (
         <>
         {loading && <Loader />}
-            <div className='address-form'>
+            <div className='form'>
                 <div className='card'>
                 <form onSubmit={registerAddress}>
                     <h3>Address</h3>
@@ -85,9 +85,9 @@ const Address = () => {
                     <input type="text" placeholder="City" required name='city' value={address.city} onChange={(e) => handleBilling(e)} />
                     <label>State:</label>
                     <input type="text" placeholder="State" required name='state' value={address.state} onChange={(e) => handleBilling(e)} />
-                    <label>Postal code:</label>
+                    <label>Postal code: </label>
                     <input type="number" placeholder="Postal code" required name='postal_code' value={address.postal_code} onChange={(e) => handleBilling(e)} />
-                    <label>Phone:</label>
+                    <label>&nbsp;&nbsp;Phone: </label>
                     <input type="number" placeholder="Phone" required name='phone' value={address.phone} onChange={(e) => handleBilling(e)} />
                     <br /><br />
                     <button type='submit' className='btn btn-primary btn-block'>Register</button>

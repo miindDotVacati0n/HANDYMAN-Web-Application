@@ -20,6 +20,12 @@
     text-align: left;
     padding: 8px;
 }
+.th-right{
+    text-align: right;
+}
+.td-right{
+    text-align: right;
+}
 .table table tr {
     border-bottom: 1px solid #ccc;
     cursor: pointer;

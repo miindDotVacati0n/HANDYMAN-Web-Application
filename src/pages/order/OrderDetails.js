@@ -33,6 +33,9 @@ const OrderDetails = () => {
               <b>Order Amount</b> {order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB
             </p>
             <p>
+              <b>Appointed Time</b> {order.serviceDate}
+            </p>
+            <p>
               <b>Order Status</b> {order.orderStatus}
             </p>
             <br />
@@ -41,9 +44,9 @@ const OrderDetails = () => {
                 <tr>
                   <th>s/n</th>
                   <th>Service</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
+                  <th className='th-right'>Price</th>
+                  <th className='th-right'>Quantity</th>
+                  <th className='th-right'>Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -64,9 +67,9 @@ const OrderDetails = () => {
                           style={{ width: "100px" }}
                         />
                       </td>
-                      <td>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
-                      <td>{cartQuantity}</td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
+                      <td className='td-right'>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+                      <td  className='td-right'>{cartQuantity}</td>
+                      <td  className='td-right'>{(price * cartQuantity).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
                       
                     </tr>
                   );

@@ -59,6 +59,8 @@ const ChangeOrderStatus = ({ order, id }) => {
       orderAmount: order.orderAmount,
       orderStatus: status,
       cartItems: order.cartItems,
+      userAddress: order.userAddress,
+      serviceDate: order.serviceDate,
       createdAt: order.createdAt,
       editedAt: Timestamp.now().toDate(),
     };

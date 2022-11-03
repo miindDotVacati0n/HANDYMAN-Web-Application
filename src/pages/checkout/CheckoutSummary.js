@@ -38,7 +38,7 @@ const CheckoutSummary = () => {
                   <h4>Service: {name}</h4>
                   <p>Quantity: {cartQuantity}</p>
                   <p>Unit price: {price}</p>
-                  <p>Set price: {price * cartQuantity}</p>
+                  <p>Subtotal price: {price * cartQuantity}</p>
                 </div>
               );
             })}

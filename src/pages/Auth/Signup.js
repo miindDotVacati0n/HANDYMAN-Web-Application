@@ -88,9 +88,13 @@ const Signup = () => {
       <div className='form'>
 
         <h2>Register</h2>
+        <br/>
         <form onSubmit={(registerUser)}>
+          <label>Email: </label>
           <input type={'text'} placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)} />
+          <label>Password: </label>
           <input type={'password'} placeholder='Password' required value={password} onChange={(e) => setPassword(e.target.value)} />
+          <label>Confirm Password: </label>
           <input type={'password'} placeholder='Confirm Password' required value={cPassword} onChange={(e) => setCPassword(e.target.value)} />
           <button type='submit' className='btn btn-primary btn-block'>Next</button>
         </form>

@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import useFetchCollection from '../../component/customHooks/useFetchCollection'
 import useFetchDocument from '../../component/customHooks/useFetchDocument'
 import Loader from '../../component/Loader'
 import addressSlice from '../../redux/slice/addressSlice'
 import ChangeOrderStatus from './ChangeOrderStatus'
-
 
 const AdminOrderDetails = () => {
 
   const [order, setOrder] = useState(null);
   const { id } = useParams();
   const { document } = useFetchDocument("orders", id);
-
-  // const filteredAddress = orders.filter((order) => order.userID === userID)
-
 
   useEffect(() => {
     setOrder(document);
@@ -41,7 +38,7 @@ const AdminOrderDetails = () => {
               <b>Order Amount: </b> {order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB
             </p>
             <p>
-              <b>Appointed time</b>
+              <b>Appointed Time</b> {order.serviceDate}
             </p>
             <p>
               <b>Order Status: </b> {order.orderStatus}
@@ -63,9 +60,9 @@ const AdminOrderDetails = () => {
                 <tr>
                   <th>s/n</th>
                   <th>Service</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
+                  <th className='th-right'>Price</th>
+                  <th className='th-right'>Quantity</th>
+                  <th className='th-right'>Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -86,9 +83,9 @@ const AdminOrderDetails = () => {
                           style={{ width: "100px" }}
                         />
                       </td>
-                      <td>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
-                      <td>{cartQuantity}</td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
+                      <td className='td-right'>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+                      <td className='td-right'>{cartQuantity}</td>
+                      <td className='td-right'>{(price * cartQuantity).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
                     </tr>
                   );
                 })}
