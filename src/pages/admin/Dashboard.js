@@ -9,6 +9,7 @@ import { CALC_TOTAL_ORDER_AMOUNT, selectOrderHistory, selectTotalOrderAmount, ST
 import { selectServices, STORE_SERVICES } from '../../redux/slice/serviceSlice';
 import '../../styles/Admin/Dashboard.css'
 
+
 const earningIcon = <AiFillDollarCircle size={30} color="#b624ff" />;
 const serviceIcon = <BsCart4 size={30} color="#1f93ff" />;
 const ordersIcon = <FaCartArrowDown size={30} color="orangered" />;
@@ -55,6 +56,8 @@ const Dashboard = () => {
             count={orders.length}
             icon={ordersIcon}
           />
+        </div>
+        <div>
         </div>
         
       </div>

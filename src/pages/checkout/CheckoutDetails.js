@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './../../styles/Pages/Checkout/CheckoutDetails.css'
 import CheckoutSummary from './CheckoutSummary';
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
 import { toast } from 'react-toastify';
-import { STORE_DATE } from '../../redux/slice/dateSlice';
+import { selectDate, STORE_DATE } from '../../redux/slice/dateSlice';
 
 const CheckoutDetails = () => {
 
   const [selectedDate, setSelectedDate] = useState()
+  const [checkdate, setCheckDate] = useState()
+
+  const check = useSelector(selectDate)
 
 
   const dispatch = useDispatch()
@@ -28,24 +31,12 @@ const CheckoutDetails = () => {
     navigate('/checkout')
   }
 
-  // const newDate = new Date()
-  // const date = `${newDate.getDate()}/${newDate.getMonth()+1}/${newDate.getFullYear()}`
-  // if (selectedDate < date.getDate()){
-  //   toast.error("Please select date again")
-  // } 
-
-  // if (selectedDate < setSelectedDate) {
-  //   toast.error("1")
-  // }
-
-  // var today = new Date();
-  // if (selectedDate < today) {
-  //   toast.error("1")
-  // }
 
   var today = new Date().toISOString().slice(0,10)
 
-  
+  // if (checkdate(check) === check) {
+  //   toast.error("1")
+  // }
 
   return (
     <section>

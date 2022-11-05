@@ -12,7 +12,7 @@ import Reset from "./pages/Auth/Reset";
 import { ToastContainer } from 'react-toastify';
 import { injectStyle } from "react-toastify/dist/inject-style";
 // import AdminRoute from "./component/AdminRoute";
-import AdminHome from "./pages/admin/AdminHome";
+// import AdminHome from "./pages/admin/AdminHome";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AddServices from "./pages/admin/AddServices";
 import ViewServices from "./pages/admin/ViewServices";
@@ -58,8 +58,8 @@ const App = () => {
         <Route path="/reset" element={<Reset />} />
         <Route path="/services" element={<Services />} />
 
-        
-        <Route path="/adminhome" element={<AdminHome />} />
+{/*         
+        <Route path="/adminhome" element={<AdminHome />} /> */}
         <Route path="/addservices/:id" element={<AddServices />} />
         {/* <Route path="/allservices" element={<AdminAllServices />} /> */}
         <Route path="/allservices" element={<ViewServices />} />

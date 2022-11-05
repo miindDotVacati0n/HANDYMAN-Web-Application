@@ -30,13 +30,16 @@ const AdminOrderDetails = () => {
         ) : (
           <>
             <p>
+              <b>User Name: </b> &nbsp;{order.userAddress.name}
+            </p>
+            <p>
               <b>User Email: </b> &nbsp;{order.userEmail}
             </p>
             <p>
               <b>Order ID: </b> &nbsp;{order.id}
             </p>
             <p>
-              <b>Order Amount: </b> &nbsp;{order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}THB
+              <b>Order Amount: </b> &nbsp;{order.orderAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}&nbsp;THB
             </p>
             <p>
               <b>Appointed Date: </b> &nbsp;{order.serviceDate}
@@ -51,6 +54,8 @@ const AdminOrderDetails = () => {
               {order.userAddress.line2}, {order.userAddress.city}
               <br />
               State: {order.userAddress.state}
+              <br/>
+              Postal Code: {order.userAddress.postal_code}
               <br />
               Phone: {order.userAddress.phone}
             </p>
